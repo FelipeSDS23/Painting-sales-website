@@ -6,6 +6,7 @@ const app = express()
 
 // import routes
 const paintingRoutes = require('./routes/paintingRoutes')
+const adminRoutes = require('./routes/adminRoutes')
 
 // import controller
 const PaintingsController = require('./controllers/PaintingsController')
@@ -23,6 +24,7 @@ app.use(express.static('public'))
 
 // Routes
 app.use('/paintings', paintingRoutes)
+app.use('/admin', adminRoutes)
 app.get('/', PaintingsController.showAllPaintings)
 
 conn
