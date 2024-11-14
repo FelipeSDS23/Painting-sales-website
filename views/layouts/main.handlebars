@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
+    <!-- Google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Início menu -->
+    <span class="material-symbols-outlined open-close-btn" id="open-close-btn">menu</span> <!-- Botão do menu -->
+    <header class="header" id="header">
+        <section class="main-content menu">
+            <h1>LOGO</h1>
+            <nav>
+                <ul class="menu_navigation">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#">Contato</a></li>
+                    {{#if true}}
+                        <li><a href="#">Entrar</a></li>
+                    {{else}}
+                        <li><a href="#">Sair</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <!-- Fim menu -->
+    {{{body}}}
+    <script src="/js/script.js"></script>
+</body>
+</html>
