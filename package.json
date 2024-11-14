@@ -1,0 +1,26 @@
+{
+  "name": "painting_sales_website",
+  "version": "1.0.0",
+  "description": "painting sales website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeSDS23/Painting-sales-website.git"
+  },
+  "author": "FelipeSDS23",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelipeSDS23/Painting-sales-website/issues"
+  },
+  "homepage": "https://github.com/FelipeSDS23/Painting-sales-website#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1",
+    "mysql2": "^3.11.4",
+    "nodemon": "^3.1.7",
+    "sequelize": "^6.37.5"
+  }
+}
