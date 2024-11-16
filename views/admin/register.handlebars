@@ -1,7 +1,7 @@
 <section class="main-content align-center">
     <div class="form-container">
-        <h1>Login</h1>
-        <form action="/admin/login" method="post">
+        <h1>Registrar-se</h1>
+        <form action="/admin/register" method="post">
             <div class="form-field-container">
                 <label for="email">E-mail:</label>
                 <input type="email" name="email" id="email" required="true" placeholder="Digite seu e-mail">
@@ -11,11 +11,14 @@
                 <input type="password" name="password" id="password" required="true" placeholder="Digite sua senha">
             </div>
             <div class="form-field-container">
-                <input type="submit" value="Entrar" class="submit-btn">
+                <input type="number" name="userVerificationCode" id="userVerificationCode" required="true" placeholder="Digite seu código de verificação">
+            </div>
+            <div class="form-field-container">
+                <input type="submit" value="Criar conta" class="submit-btn">
             </div>
         </form>
         <div>
-            <p>Já possui uma conta? <a href="/admin/register">Registrar-se</a></p>
+            <a href="/admin/login">Entrar</a>
         </div>
     </div>
 </section>
