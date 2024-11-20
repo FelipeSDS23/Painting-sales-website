@@ -47,6 +47,19 @@ body {
 .display-none {
     display: none;
 }
+
+.message { /* flash messages */
+    padding: 1em;
+    color: #fff;
+    background-color: #1958f8;
+    border-radius: 5px;
+    text-align: center;
+    margin: 20px auto 20px auto;
+    max-width: 60%;
+    font-weight: bold;
+    font-family: var(--menu-font);
+  }
+
 /* Fim classes genéricas */
 
 /* Início do menu */
@@ -133,6 +146,12 @@ body {
 
 
 @media screen and (max-width: 800px) {
+
+    .message { /* flash messages */
+        margin-bottom: -40px;
+        max-width: 90%;
+        margin-top: 120px;
+      }
 
     /* Início do menu */
     .open-close-btn {

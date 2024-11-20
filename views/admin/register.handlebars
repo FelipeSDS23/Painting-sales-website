@@ -1,4 +1,4 @@
-<section class="main-content align-center">
+<section class="main-content">
     <div class="form-container">
         <h1>Registrar-se</h1>
         <form action="/admin/register" method="post">
@@ -11,6 +11,7 @@
                 <input type="password" name="password" id="password" required="true" placeholder="Digite sua senha">
             </div>
             <div class="form-field-container">
+                <label for="userVerificationCode">Código de <br> verificação:</label>
                 <input type="number" name="userVerificationCode" id="userVerificationCode" required="true" placeholder="Digite seu código de verificação">
             </div>
             <div class="form-field-container">
@@ -18,7 +19,7 @@
             </div>
         </form>
         <div>
-            <a href="/admin/login">Entrar</a>
+            <p>Já possui uma conta? <a href="/admin/login">Entrar</a></p>
         </div>
     </div>
 </section>

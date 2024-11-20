@@ -1,4 +1,10 @@
+const { where } = require('sequelize')
 const sendAdminVerificationCode = require('../helpers/send-admin-verification-code')
+
+const Admin = require('../models/Admin')
+
+const bcrypt = require('bcryptjs')
+const session = require('express-session')
 
 // código para validação de registro de novos usuários administradores
 let appVerificationCode = undefined
@@ -6,7 +12,12 @@ let appVerificationCode = undefined
 module.exports = class AdminController {
     static async showMainManagementPage(req, res) {
 
-        res.render('admin/management')
+        console.log(req.session)
+        
+        const session = req.session
+
+        res.render('admin/management', {session})
+        // res.render('admin/management')
 
     }
 
@@ -18,8 +29,34 @@ module.exports = class AdminController {
 
     static async loginPost(req, res) {
 
-        console.log(req.body.email)
-        console.log(req.body.password)
+        const {email, password} = req.body
+ 
+        // find user
+        const admin = await Admin.findOne({where: {email: email}})
+
+        if(!admin) {
+            req.flash('message', 'Usuário não encontrado!')
+            res.render('admin/login')
+            return
+        }
+
+        // check if password match
+        const passwordMatch = bcrypt.compareSync(password, admin.password)
+
+        if(!passwordMatch) {
+            req.flash('message', 'Senha inválida!')
+            res.render('admin/login')
+            return
+        }
+
+        // initialize session
+        req.session.adminid = admin.id
+
+        req.flash('message', 'Autenticação realizada com sucesso!')
+
+        req.session.save(() => {
+            res.redirect('/admin/management')
+        }) 
 
     }
 
@@ -45,10 +82,45 @@ module.exports = class AdminController {
         // console.log(appVerificationCode)
 
         if (userVerificationCode === appVerificationCode) {
-            console.log(`O usuário ${email} senha ${password} pode ser cadastrado!`)
+
+            // create a password
+            const salt = bcrypt.genSaltSync(10)
+            const hashedPassword = bcrypt.hashSync(password, salt)
+
+            const admin = {
+                email,
+                password: hashedPassword
+            }
+
+            try {
+                const createdAdmin = await Admin.create(admin)
+
+                // initialize session
+                req.session.adminid = createdAdmin.id
+    
+                req.flash('message', 'Novo administrador cadastrado com sucesso!')
+    
+                req.session.save(( ) => {
+                    res.redirect('/admin/management')
+                })
+            } catch (error) {
+                console.log(error)
+            }
+
+
+            // console.log(`O usuário ${email} senha ${password} pode ser cadastrado!`)
         } else {
-            console.log(`O usuário ${email} senha ${password} NÃO pode ser cadastrado!`)
+            req.flash('message', 'Código de verificação inválido!')
+            res.render('admin/register')
+            return
+            // console.log(`Código de verificação inválido!`)
         }
 
+    }
+
+    static async logout(req, res) {
+        console.log("foi")
+        req.session.destroy()
+        res.redirect('login')
     }
 }
