@@ -20,46 +20,18 @@
 <section class="galeria" id="galeria">
     <h2>Galeria</h2>
     <div class="grid-container">
-        <a href="?quadro=q1">
+        {{#each paintings}}
+            <a href="?id={{this.id}}">
+                <div class="grid-card">
+                    <img src="/img/paintings/{{this.image}}" alt="#" class="card-img">
+                </div>
+            </a>
+        {{/each}}
+        {{!-- <a href="?quadro=q1">
             <div class="grid-card">
                 <img src="/img/paintings/cover_1.webp" alt="#" class="card-img">
             </div>
-        </a>
-        <a href="?quadro=q2">
-            <div class="grid-card">
-                <img src="/img/paintings/cover_1.webp" alt="#" class="card-img">
-            </div>
-        </a>
-        <a href="?quadro=q3">
-            <div class="grid-card">
-                <img src="/img/paintings/cover_1.webp" alt="#" class="card-img">
-            </div>
-        </a>
-        <a href="?quadro=q4">
-            <div class="grid-card">
-                <img src="/img/paintings/cover_1.webp" alt="#" class="card-img">
-            </div>
-        </a>
-        <a href="?quadro=q5">
-            <div class="grid-card">
-                <img src="/img/paintings/cover_1.webp" alt="#" class="card-img">
-            </div>
-        </a>
-        <a href="?quadro=q6">
-            <div class="grid-card">
-                <img src="/img/paintings/cover_1.webp" alt="#" class="card-img">
-            </div>
-        </a>
-        <a href="?quadro=q7">
-            <div class="grid-card">
-                <img src="/img/paintings/cover_1.webp" alt="#" class="card-img">
-            </div>
-        </a>
-        <a href="?quadro=q8">
-            <div class="grid-card">
-                <img src="/img/paintings/cover_1.webp" alt="#" class="card-img">
-            </div>
-        </a>
+        </a> --}}
     </div>
 </section>
 <!-- Fim galeria grid -->

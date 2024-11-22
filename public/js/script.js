@@ -24,3 +24,18 @@ function resize() { // Mostra/esconde o menu ao redimencionar a janela
     }
 }
 // Fim controle do menu (mobile / desktop)
+
+// Controle de exibição das flash messages
+const message = document.querySelector("#message");
+
+hideElementAfterSomeTime(message, 5000)
+
+function hideElementAfterSomeTime(element, time) {
+    if(!element) {
+        return
+    }
+    setTimeout(() => {
+        element.style.display = "none";
+    }, time);
+}
+

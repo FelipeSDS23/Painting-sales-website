@@ -2,6 +2,7 @@ const { where } = require('sequelize')
 const sendAdminVerificationCode = require('../helpers/send-admin-verification-code')
 
 const Admin = require('../models/Admin')
+const Painting = require('../models/Painting')
 
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
@@ -19,6 +20,52 @@ module.exports = class AdminController {
         res.render('admin/management', {session})
         // res.render('admin/management')
 
+    }
+
+    static async paintingRegister(req, res) {
+
+        const {name, description, height, width, frameType, price} = req.body
+        // console.log(name)
+        // console.log(description)
+        // console.log(height)
+        // console.log(width)
+        // console.log(frameType)
+        // console.log(price)
+        // console.log(image)
+
+        const AdminId = req.session.adminid
+
+        let image = ''
+        if(req.file) {
+            image = req.file.filename
+        }
+
+        const painting = {
+            name,
+            description,
+            height, 
+            width, 
+            frameType, 
+            price, 
+            image,
+            AdminId
+        }
+
+        try {
+
+            await Painting.create(painting)
+            
+            req.flash('message', 'Cadastro realizado com sucesso!')
+
+            const session = req.session
+            res.render('admin/management', {session})
+
+        } catch (error) {
+            req.flash('message', 'Erro ao cadastrar, por favor tente mais tarde!')
+
+            const session = req.session
+            res.render('admin/management', {session})
+        }
     }
 
     static async login(req, res) {
