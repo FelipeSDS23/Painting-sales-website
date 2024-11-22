@@ -140,8 +140,22 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
+.galeria .grid-container .grid-card {
+    aspect-ratio: 1; /* Garante que os cards sejam quadrados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Esconde qualquer conteúdo extra */
+    border: 1px solid #ccc; /* Opcional: borda para separar visualmente os cards */
+    border-radius: 8px; /* Opcional: bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: efeito de sombra */
+    background-color: #fff;
+}
+
 .galeria .card-img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Garante que a imagem inteira seja visível sem cortes */
 }
 /* Fim galeria */
 
