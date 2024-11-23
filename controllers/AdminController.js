@@ -1,138 +1,71 @@
-const { where } = require('sequelize')
-const sendAdminVerificationCode = require('../helpers/send-admin-verification-code')
+const sendAdminVerificationCode = require('../helpers/send-admin-verification-code');
+const Admin = require('../models/Admin');
+const bcrypt = require('bcryptjs');
 
-const Admin = require('../models/Admin')
-const Painting = require('../models/Painting')
-
-const bcrypt = require('bcryptjs')
-const session = require('express-session')
-
-// código para validação de registro de novos usuários administradores
-let appVerificationCode = undefined
+let appVerificationCode = undefined; // current new user verification code
 
 module.exports = class AdminController {
+
     static async showMainManagementPage(req, res) {
 
-        console.log(req.session)
-        
-        const session = req.session
+        const session = req.session;
+        res.render('admin/management', {session});
 
-        res.render('admin/management', {session})
-        // res.render('admin/management')
-
-    }
-
-    static async paintingRegister(req, res) {
-
-        const {name, description, height, width, frameType, price} = req.body
-        // console.log(name)
-        // console.log(description)
-        // console.log(height)
-        // console.log(width)
-        // console.log(frameType)
-        // console.log(price)
-        // console.log(image)
-
-        const AdminId = req.session.adminid
-
-        let image = ''
-        if(req.file) {
-            image = req.file.filename
-        }
-
-        const painting = {
-            name,
-            description,
-            height, 
-            width, 
-            frameType, 
-            price, 
-            image,
-            AdminId
-        }
-
-        try {
-
-            await Painting.create(painting)
-            
-            req.flash('message', 'Cadastro realizado com sucesso!')
-
-            const session = req.session
-            res.render('admin/management', {session})
-
-        } catch (error) {
-            req.flash('message', 'Erro ao cadastrar, por favor tente mais tarde!')
-
-            const session = req.session
-            res.render('admin/management', {session})
-        }
     }
 
     static async login(req, res) {
 
-        res.render('admin/login')
+        res.render('admin/login');
 
     }
 
     static async loginPost(req, res) {
 
-        const {email, password} = req.body
+        const {email, password} = req.body;
  
-        // find user
-        const admin = await Admin.findOne({where: {email: email}})
+        const admin = await Admin.findOne({where: {email: email}}); // find user
 
         if(!admin) {
-            req.flash('message', 'Usuário não encontrado!')
-            res.render('admin/login')
-            return
+            req.flash('message', 'Usuário não encontrado!');
+            res.render('admin/login');
+            return;
         }
-
-        // check if password match
-        const passwordMatch = bcrypt.compareSync(password, admin.password)
+        
+        const passwordMatch = bcrypt.compareSync(password, admin.password); // check if password match
 
         if(!passwordMatch) {
-            req.flash('message', 'Senha inválida!')
-            res.render('admin/login')
-            return
+            req.flash('message', 'Senha inválida!');
+            res.render('admin/login');
+            return;
         }
 
-        // initialize session
-        req.session.adminid = admin.id
+        req.session.adminid = admin.id; // initialize session
 
-        req.flash('message', 'Autenticação realizada com sucesso!')
+        req.flash('message', 'Autenticação realizada com sucesso!');
 
         req.session.save(() => {
-            res.redirect('/admin/management')
-        }) 
+            res.redirect('/admin/management');
+        }); 
 
     }
 
     static async register(req, res) {
 
-        appVerificationCode = await sendAdminVerificationCode(req)
-
-        // console.log(appVerificationCode)
-
-        res.render('admin/register')
+        appVerificationCode = await sendAdminVerificationCode(req);
+        res.render('admin/register');
 
     }
 
     static async registerPost(req, res) {
 
-        const email = req.body.email
-        const password = req.body.password
-        const userVerificationCode = Number(req.body.userVerificationCode)
-
-        // console.log(email)
-        // console.log(password)
-        // console.log(userVerificationCode)
-        // console.log(appVerificationCode)
+        const email = req.body.email;
+        const password = req.body.password;
+        const userVerificationCode = Number(req.body.userVerificationCode);
 
         if (userVerificationCode === appVerificationCode) {
 
-            // create a password
-            const salt = bcrypt.genSaltSync(10)
-            const hashedPassword = bcrypt.hashSync(password, salt)
+            const salt = bcrypt.genSaltSync(10); // create a password
+            const hashedPassword = bcrypt.hashSync(password, salt); // create a password
 
             const admin = {
                 email,
@@ -140,34 +73,36 @@ module.exports = class AdminController {
             }
 
             try {
-                const createdAdmin = await Admin.create(admin)
 
-                // initialize session
-                req.session.adminid = createdAdmin.id
-    
-                req.flash('message', 'Novo administrador cadastrado com sucesso!')
-    
+                const createdAdmin = await Admin.create(admin);
+                req.session.adminid = createdAdmin.id; // initialize session
+                req.flash('message', 'Novo administrador cadastrado com sucesso!');
+
                 req.session.save(( ) => {
-                    res.redirect('/admin/management')
+                    res.redirect('/admin/management');
                 })
+
             } catch (error) {
-                console.log(error)
+
+                console.log(error);
+
             }
 
-
-            // console.log(`O usuário ${email} senha ${password} pode ser cadastrado!`)
         } else {
-            req.flash('message', 'Código de verificação inválido!')
-            res.render('admin/register')
-            return
-            // console.log(`Código de verificação inválido!`)
+
+            req.flash('message', 'Código de verificação inválido!');
+            res.render('admin/register');
+            return;
+
         }
 
     }
 
     static async logout(req, res) {
-        console.log("foi")
-        req.session.destroy()
-        res.redirect('login')
+
+        req.session.destroy();
+        res.redirect('login');
+
     }
+    
 }

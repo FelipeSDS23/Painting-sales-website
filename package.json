@@ -19,6 +19,7 @@
   "homepage": "https://github.com/FelipeSDS23/Painting-sales-website#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-flash": "^0.0.2",
     "express-handlebars": "^8.0.1",

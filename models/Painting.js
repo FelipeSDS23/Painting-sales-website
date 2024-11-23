@@ -1,8 +1,8 @@
-const { DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize');
 
-const db = require('../db/conn')
+const db = require('../db/conn');
 
-const Admin = require('./Admin')
+const Admin = require('./Admin');
 
 const Painting = db.define('Painting', {
     name: {
@@ -33,9 +33,9 @@ const Painting = db.define('Painting', {
         type: DataTypes.STRING,
         require: true
     }
-})
+});
 
-Painting.belongsTo(Admin)
-Admin.hasMany(Painting)
+Painting.belongsTo(Admin);
+Admin.hasMany(Painting);
 
-module.exports = Painting
+module.exports = Painting;

@@ -25,7 +25,7 @@ function resize() { // Mostra/esconde o menu ao redimencionar a janela
 }
 // Fim controle do menu (mobile / desktop)
 
-// Controle de exibição das flash messages
+// Início controle de exibição das flash messages
 const message = document.querySelector("#message");
 
 hideElementAfterSomeTime(message, 5000)
@@ -38,4 +38,23 @@ function hideElementAfterSomeTime(element, time) {
         element.style.display = "none";
     }, time);
 }
+// Fim controle de exibição das flash messages
 
+// Início dashboard administrador
+const dashboardScreens = Array.from(document.querySelector('#adminDashboardScreen').children);
+const screenLinks = Array.from(document.querySelector('#linksList').children);
+
+screenLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+
+        dashboardScreens.forEach(screen => {
+            if (e.target.getAttribute("screenLink") == screen.getAttribute("screen")) {
+                screen.style.display = "block"
+            } else {
+                screen.style.display = "none"
+            }
+        })
+
+    })
+});
+// Fim dashboard administrador

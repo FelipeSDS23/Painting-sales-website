@@ -1,123 +1,3 @@
-<style>
-    .admin-dashboard-container {
-        display: flex;
-        position: relative;
-    }
-
-    .admin-dashboard-side-menu {
-        width: 15%;
-
-        background-color: red;
-        padding: 10px;
-        position: static;
-        top: 90px;
-    }
-
-    .admin-dashboard-side-menu ul {
-        list-style-type: none;
-    }
-
-    .admin-dashboard-side-menu ul li {
-        padding: 10px;
-        margin: 10px auto;
-        cursor: pointer;
-
-        background-color: green;
-    }
-
-    .admin-dashboard-screen {
-        width: 85%;
-        padding: 30px;
-
-        background-color: blue;
-    }
-
-    .admin-dashboard-screen .screen {
-        display: none;
-    }
-
-    /*estilo ia*/
-    /* Estilização geral do formulário */
-    form {
-        max-width: 100%;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        font-family: Arial, sans-serif;
-    }
-
-    .form-field-container {
-        margin-bottom: 15px;
-    }
-
-    /* Estilo do rótulo */
-    label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-        color: #333;
-    }
-
-    /* Estilo dos inputs, textarea e select */
-    input[type="text"],
-    input[type="number"],
-    input[type="file"],
-    select,
-    textarea {
-        width: 100%;
-        padding: 10px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
-    input[type="file"] {
-        padding: 3px;
-    }
-
-    textarea {
-        resize: vertical;
-        height: 100px;
-    }
-
-    /* Efeito de foco nos inputs */
-    input:focus,
-    textarea:focus,
-    select:focus {
-        border-color: #007bff;
-        outline: none;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-
-    /* Estilo do botão de envio */
-    .submit-btn {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 15px;
-        font-size: 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        width: 100%;
-    }
-
-    .submit-btn:hover {
-        background-color: #0056b3;
-    }
-
-    /* Ajuste de espaçamento e alinhamento para o campo de upload */
-    input[type="file"] {
-        margin-top: 5px;
-    }
-
-    /*fim estilo ia*/
-</style>
-
-
 <section class="main-content">
     <h1>Olá Usuário</h1>
     <div class="admin-dashboard-container">
@@ -132,7 +12,7 @@
         <div class="admin-dashboard-screen" id="adminDashboardScreen">
             <div screen="1" class="screen" style="display: block;">
 
-                <form action="/admin/painting/register" method="post" enctype="multipart/form-data">
+                <form action="/paintings/register" method="post" enctype="multipart/form-data">
                     <div class="form-field-container">
                         <label for="name">Nome do quadro:</label>
                         <input type="text" name="name" id="name" required="true" placeholder="Digite o nome do quadro">
@@ -167,7 +47,7 @@
                             placeholder="Digite a preço do quadro">
                     </div>
                     <div class="form-field-container">
-                        <label for="upload-image">Imagem (png / jpg):</label>
+                        <label for="upload-image">Imagem (png | jpg | jpeg):</label>
                         <input type="file" id="upload-image" name="image" accept="image/*">
                     </div>
 
@@ -190,25 +70,3 @@
         </div>
     </div>
 </section>
-
-
-<script>
-
-    const dashboardScreens = Array.from(document.querySelector('#adminDashboardScreen').children);
-    const screenLinks = Array.from(document.querySelector('#linksList').children);
-
-    screenLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-
-            dashboardScreens.forEach(screen => {
-                if (e.target.getAttribute("screenLink") == screen.getAttribute("screen")) {
-                    screen.style.display = "block"
-                } else {
-                    screen.style.display = "none"
-                }
-            })
-
-        })
-    });
-
-</script>
