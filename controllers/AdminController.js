@@ -1,5 +1,6 @@
 const sendAdminVerificationCode = require('../helpers/send-admin-verification-code');
 const Admin = require('../models/Admin');
+const Painting = require('../models/Painting');
 const bcrypt = require('bcryptjs');
 
 let appVerificationCode = undefined; // current new user verification code
@@ -8,8 +9,25 @@ module.exports = class AdminController {
 
     static async showMainManagementPage(req, res) {
 
+        const paintingsData = await Painting.findAll({
+            order: [['createdAt', 'ASC']]
+        })
+
+        const paintings = paintingsData.map((paint) => {
+            return paint.get({ plain: true })
+        })
+
+        let paintingsQty = paintings.length
+
+        if (paintingsQty === 0) {
+            paintingsQty = false
+        }
+
+
+        console.log(paintings)
+
         const session = req.session;
-        res.render('admin/management', {session});
+        res.render('admin/management', {session, paintings});
 
     }
 

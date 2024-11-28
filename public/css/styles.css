@@ -228,7 +228,7 @@ body {
 
 .admin-dashboard-side-menu {
     width: 15%;
-    background-color: red;
+    background-color: #6e6e6e;
     padding: 10px;
     position: static;
     top: 90px;
@@ -248,7 +248,7 @@ body {
 .admin-dashboard-screen {
     width: 85%;
     padding: 30px;
-    background-color: blue;
+    background-color: #a0a0a0;
 }
 
 .admin-dashboard-screen .screen {

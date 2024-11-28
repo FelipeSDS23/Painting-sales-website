@@ -1,3 +1,4 @@
+const fs = require('fs');
 const Painting = require('../models/Painting');
 
 module.exports = class PaintingsController {
@@ -42,17 +43,50 @@ module.exports = class PaintingsController {
             await Painting.create(painting);
             req.flash('message', 'Cadastro realizado com sucesso!');
             const session = req.session;
-            res.render('admin/management', {session});
+            res.redirect('/admin/management');
 
         } catch (error) {
 
             req.flash('message', 'Erro ao cadastrar, por favor tente mais tarde!');
             const session = req.session;
-            res.render('admin/management', {session});
+            res.redirect('/admin/management');
             
         }
         
     }
 
+    static async paintingDelete(req, res) {
+
+        const _id = req.params.id
+
+        const painting = await Painting.findOne({
+            where: {id: _id}
+        });
+
+        if(!painting) {
+            res.redirect(res.render('admin/management'))
+            return
+        }
+
+        const imgName = painting.toJSON().image
+
+        await Painting.destroy({
+            where: {id: _id}
+        })
+
+        const filePath = `public/img/paintings/${imgName}`;
+
+        fs.unlink(filePath, (erro) => {
+            if (erro) {
+              console.error('Erro ao deletar o arquivo:', erro);
+            } else {
+              console.log('Arquivo deletado com sucesso!');
+            }
+        });
+        
+        req.flash('message', 'Exclusão realizada com sucesso!')
+
+        res.redirect('/admin/management')
+    }
 
 }

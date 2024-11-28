@@ -1,3 +1,23 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #000;
+        text-align: center;
+    }
+    th {
+        background-color: #50cc75;
+    }
+    tr:nth-child(even) {
+        background-color: #50cc75;
+    }
+</style>
+
 <section class="main-content">
     <h1>Olá Usuário</h1>
     <div class="admin-dashboard-container">
@@ -57,15 +77,43 @@
                 </form>
 
             </div>
-            <div screen="2" class="screen form-container">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam dicta ut mollitia perferendis dolorem, quam nemo id dolor ullam, autem neque delectus deserunt. Repudiandae illo facilis cupiditate consequuntur. Tempora?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam dicta ut mollitia perferendis dolorem, quam nemo id dolor ullam, autem neque delectus deserunt. Repudiandae illo facilis cupiditate consequuntur. Tempora?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam dicta ut mollitia perferendis dolorem, quam nemo id dolor ullam, autem neque delectus deserunt. Repudiandae illo facilis cupiditate consequuntur. Tempora?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam dicta ut mollitia perferendis dolorem, quam nemo id dolor ullam, autem neque delectus deserunt. Repudiandae illo facilis cupiditate consequuntur. Tempora?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam dicta ut mollitia perferendis dolorem, quam nemo id dolor ullam, autem neque delectus deserunt. Repudiandae illo facilis cupiditate consequuntur. Tempora?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam dicta ut mollitia perferendis dolorem, quam nemo id dolor ullam, autem neque delectus deserunt. Repudiandae illo facilis cupiditate consequuntur. Tempora?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam dicta ut mollitia perferendis dolorem, quam nemo id dolor ullam, autem neque delectus deserunt. Repudiandae illo facilis cupiditate consequuntur. Tempora?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam dicta ut mollitia perferendis dolorem, quam nemo id dolor ullam, autem neque delectus deserunt. Repudiandae illo facilis cupiditate consequuntur. Tempora?
+            <div screen="2" class="screen tableScreen">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Altura</th>
+                            <th>Largura</th>
+                            <th>Moldura</th>
+                            <th>Preço</th>
+                            <th>Data de Criação</th>
+                            <th>Última Atualização</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each paintings}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.name}}</td>
+                            <td>{{this.descripation}}</td>
+                            <td>{{this.height}}</td>
+                            <td>{{this.width}}</td>
+                            <td>{{this.frameType}}</td>
+                            <td>{{this.price}}</td>
+                            <td>{{this.createdAt}}</td>
+                            <td>{{this.updatedAt}}</td>
+                            <td><a href="">Editar</a></td>
+                            <td>
+                                <form action="/paintings/delete/{{this.id}}" method="post">
+                                    <input type="submit" value="Excluir">
+                                </form> 
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
