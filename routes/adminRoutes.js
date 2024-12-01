@@ -5,6 +5,7 @@ const AdminController = require("../controllers/AdminController");
 // helpers
 const checkAuth = require('../helpers/authAdmin').checkAuthAdmin;
 
+router.get('/', checkAuth, AdminController.login);
 router.get('/management', checkAuth, AdminController.showMainManagementPage);
 router.get('/login', AdminController.login);
 router.post('/login', AdminController.loginPost);

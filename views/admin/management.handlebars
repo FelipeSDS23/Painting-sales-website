@@ -1,4 +1,41 @@
 <style>
+    /*sidebar menu*/
+    .admin-dashboard-side-menu {
+        width: 200px; /* ajuste conforme necessário */
+        background-color: #fcfcfc;
+        padding: 10px 0;
+    }
+
+    #linksList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #linksList li {
+        display: block;
+        margin: 10px 15px;
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #007bff; /* cor de fundo do botão */
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #linksList li:hover {
+        background-color: #0056b3; /* cor ao passar o mouse */
+    }
+
+    #linksList li:active {
+        background-color: #003d80; /* cor ao clicar */
+    }
+    /*end of sidebar menu*/
+
+    /*table*/
     table {
         width: 100%;
         border-collapse: collapse;
@@ -11,11 +48,12 @@
         text-align: center;
     }
     th {
-        background-color: #50cc75;
+        background-color: #007bff;
     }
     tr:nth-child(even) {
-        background-color: #50cc75;
+        background-color: #007bff;
     }
+    /*end table*/
 </style>
 
 <section class="main-content">
@@ -25,8 +63,8 @@
             <ul id="linksList">
                 <li screenLink="1">Cadastro item</li>
                 <li screenLink="2">Listar items</li>
-                <li screenLink="3">CASACASCASASCA</li>
-                <li screenLink="4">CASACASCASASCA</li>
+                <li screenLink="3">No action</li>
+                <li screenLink="4">No action</li>
             </ul>
         </div>
         <div class="admin-dashboard-screen" id="adminDashboardScreen">
@@ -104,7 +142,10 @@
                             <td>{{this.price}}</td>
                             <td>{{this.createdAt}}</td>
                             <td>{{this.updatedAt}}</td>
-                            <td><a href="">Editar</a></td>
+                            <td>
+                                <form action="/paintings/update/{{this.id}}" method="get">
+                                    <input type="submit" value="Editar">
+                                </form> 
                             <td>
                                 <form action="/paintings/delete/{{this.id}}" method="post">
                                     <input type="submit" value="Excluir">

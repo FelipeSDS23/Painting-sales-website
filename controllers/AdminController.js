@@ -24,7 +24,7 @@ module.exports = class AdminController {
         }
 
 
-        console.log(paintings)
+        // console.log(paintings)
 
         const session = req.session;
         res.render('admin/management', {session, paintings});
