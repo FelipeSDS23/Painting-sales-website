@@ -102,4 +102,30 @@ module.exports = class PaintingsController {
         
     }
 
+    static async paintingUpdatePost(req, res) {
+
+        const {id, name, description, height, width, frameType, price} = req.body
+
+        let image = '';
+        if(req.file) {
+            image = req.file.filename;
+        }
+
+        const painting = {
+            name,
+            description,
+            height,
+            width,
+            frameType,
+            price,
+            image
+        }
+
+        await Painting.update(painting, {where: {id: id}})
+
+        req.flash('message', 'Registro atualizado com sucesso!')
+
+        res.redirect('/admin/management');
+    }
+
 }

@@ -1,5 +1,6 @@
 <h1>UPDATE</h1>
-<form action="" method="post" enctype="multipart/form-data">
+<form action="/paintings/update" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{painting.id}}">
     <div class="form-field-container">
         <label for="name">Nome do quadro:</label>
         <input type="text" name="name" id="name" required="true" placeholder="Digite o nome do quadro" value="{{painting.name}}">
@@ -36,6 +37,6 @@
     </div>
 
     <div class="form-field-container">
-        <input type="submit" value="Cadastrar" class="submit-btn">
+        <input type="submit" value="Atualizar" class="submit-btn">
     </div>
 </form>

@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(
     session({
         name: "session",
-        secret: "nosso_secret",
+        secret: process.env.SECRET,
         resave: false,
         saveUninitialized: false,
         store: new FileStore({

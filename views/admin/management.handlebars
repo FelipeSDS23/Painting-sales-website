@@ -1,68 +1,10 @@
-<style>
-    /*sidebar menu*/
-    .admin-dashboard-side-menu {
-        width: 200px; /* ajuste conforme necessário */
-        background-color: #fcfcfc;
-        padding: 10px 0;
-    }
-
-    #linksList {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    #linksList li {
-        display: block;
-        margin: 10px 15px;
-        padding: 10px;
-        text-align: center;
-        font-size: 16px;
-        font-weight: bold;
-        background-color: #007bff; /* cor de fundo do botão */
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    #linksList li:hover {
-        background-color: #0056b3; /* cor ao passar o mouse */
-    }
-
-    #linksList li:active {
-        background-color: #003d80; /* cor ao clicar */
-    }
-    /*end of sidebar menu*/
-
-    /*table*/
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-    }
-    th, td {
-        padding: 12px;
-        text-align: left;
-        border: 1px solid #000;
-        text-align: center;
-    }
-    th {
-        background-color: #007bff;
-    }
-    tr:nth-child(even) {
-        background-color: #007bff;
-    }
-    /*end table*/
-</style>
-
 <section class="main-content">
     <h1>Olá Usuário</h1>
     <div class="admin-dashboard-container">
         <div class="admin-dashboard-side-menu">
             <ul id="linksList">
                 <li screenLink="1">Cadastro item</li>
-                <li screenLink="2">Listar items</li>
+                <li screenLink="2">Listar itens</li>
                 <li screenLink="3">No action</li>
                 <li screenLink="4">No action</li>
             </ul>
@@ -119,13 +61,13 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            {{!-- <th>ID</th> --}}
                             <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Altura</th>
-                            <th>Largura</th>
-                            <th>Moldura</th>
-                            <th>Preço</th>
+                            {{!-- <th>Descrição</th> --}}
+                            {{!-- <th>Altura</th> --}}
+                            {{!-- <th>Largura</th> --}}
+                            {{!-- <th>Moldura</th> --}}
+                            {{!-- <th>Preço</th> --}}
                             <th>Data de Criação</th>
                             <th>Última Atualização</th>
                         </tr>
@@ -133,13 +75,13 @@
                     <tbody>
                         {{#each paintings}}
                         <tr>
-                            <td>{{this.id}}</td>
+                            {{!-- <td>{{this.id}}</td> --}}
                             <td>{{this.name}}</td>
-                            <td>{{this.descripation}}</td>
-                            <td>{{this.height}}</td>
-                            <td>{{this.width}}</td>
-                            <td>{{this.frameType}}</td>
-                            <td>{{this.price}}</td>
+                            {{!-- <td>{{this.description}}</td> --}}
+                            {{!-- <td>{{this.height}}</td> --}}
+                            {{!-- <td>{{this.width}}</td> --}}
+                            {{!-- <td>{{this.frameType}}</td> --}}
+                            {{!-- <td>{{this.price}}</td> --}}
                             <td>{{this.createdAt}}</td>
                             <td>{{this.updatedAt}}</td>
                             <td>

@@ -9,5 +9,6 @@ router.get('/dashboard', PaintingsController.showAllPaintings);
 router.post('/register', imageUpload.single('image'), PaintingsController.paintingRegister);
 router.post('/delete/:id', PaintingsController.paintingDelete);
 router.get('/update/:id', PaintingsController.paintingUpdateGet);
+router.post('/update', imageUpload.single('image'), PaintingsController.paintingUpdatePost);
 
 module.exports = router;
