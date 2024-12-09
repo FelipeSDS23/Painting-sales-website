@@ -59,6 +59,7 @@ conn
     .sync()
     .then(() => {
         app.listen(3000)
+        console.log('Servidor iniciado: http://localhost:3000/')
     }).catch((error) => {
         console.log(error)
     });

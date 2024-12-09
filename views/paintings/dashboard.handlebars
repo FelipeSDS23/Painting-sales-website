@@ -1,70 +1,93 @@
-<!-- div teste !!!!!!!!!!!!!ADICIONAR padding-top no css mobile (por causa do btn menu)!!!!!!!!!!!! -->
+<!-- Início slider -->
 <section class="inicio" id="inicio">
     <h2>Início</h2>
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
+    <div class="slider">
+        <div class="list">
+            <a href="#">
+                <div class="item">
+                    <img src="img/slider/1.jpg" alt="">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img src="img/slider/2.jpg" alt="">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img src="img/slider/3.jpg" alt="">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img src="img/slider/4.jpg" alt="">
+                </div>
+            </a>
+            <a href="#">
+                <div class="item">
+                    <img src="img/slider/5.jpg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="buttons">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
 </section>
-<!-- fim div teste -->
+<!-- Fim slider -->
 
 <!-- Início galeria grid -->
 <section class="galeria" id="galeria">
     <h2>Galeria</h2>
     <div class="grid-container">
         {{#each paintings}}
-            <a href="?id={{this.id}}">
-                <div class="grid-card">
-                    <img src="/img/paintings/{{this.image}}" alt="#" class="card-img">
-                </div>
-            </a>
+        <a href="?id={{this.id}}">
+            <div class="grid-card">
+                <img src="/img/paintings/{{this.image}}" alt="#" class="card-img">
+            </div>
+        </a>
         {{/each}}
     </div>
 </section>
 <!-- Fim galeria grid -->
 
-<!-- /* excluir /* -->
-<div>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-</div>
-<div>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-</div>
-<div>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus doloribus ducimus placeat quo, corporis ad asperiores soluta itaque ex ullam autem aperiam nostrum perspiciatis quibusdam excepturi assumenda laudantium, iure repellat!
-</div>
+{{!-- Inicio contato --}}
+<section>
+    <h2>Contato</h2>
+    <div>
+
+        <div>
+            <h3>Redes Sociais</h3>
+            <div>
+                <img src="/img/icons/instagram.png" alt="Instagram">
+                <img src="/img/icons/facebook.png" alt="Facebook">
+                <img src="/img/icons/whatsapp.png" alt="Whatsapp">
+            </div>
+        </div>
+        <div>
+            <h3>Sobre</h3>
+  
+        </div>
+        <div>
+            <h3>Contato</h3>
+ 
+        </div>
+        <div>
+            <h3>Atendimento</h3>
+    
+        </div>
+        
+    </div>
+</section>
+<footer>
+    Desenvolvido por <a href="#">Felipe Silva</a>
+</footer>
+{{!-- Fim contato --}}
