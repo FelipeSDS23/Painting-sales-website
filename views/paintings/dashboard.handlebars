@@ -48,46 +48,22 @@
 <section class="galeria" id="galeria">
     <h2>Galeria</h2>
     <div class="grid-container">
-        {{#each paintings}}
-        <a href="?id={{this.id}}">
-            <div class="grid-card">
-                <img src="/img/paintings/{{this.image}}" alt="#" class="card-img">
-            </div>
-        </a>
-        {{/each}}
+        {{#if paintings}}
+            {{#each paintings}}
+            <a href="?id={{this.id}}">
+                <div class="grid-card">
+                    <img src="/img/paintings/{{this.image}}" alt="#" class="card-img">
+                </div>
+                <div class="details">
+                    <span class="paint-name">{{this.name}}</span><br>
+                    <span class="paint-price">R$ {{this.price}},00</span>
+                </div>
+            </a>
+            {{/each}}
+        {{else}}
+            <p>Sem dados!</p>
+        {{/if}}
+
     </div>
 </section>
 <!-- Fim galeria grid -->
-
-{{!-- Inicio contato --}}
-<section>
-    <h2>Contato</h2>
-    <div>
-
-        <div>
-            <h3>Redes Sociais</h3>
-            <div>
-                <img src="/img/icons/instagram.png" alt="Instagram">
-                <img src="/img/icons/facebook.png" alt="Facebook">
-                <img src="/img/icons/whatsapp.png" alt="Whatsapp">
-            </div>
-        </div>
-        <div>
-            <h3>Sobre</h3>
-  
-        </div>
-        <div>
-            <h3>Contato</h3>
- 
-        </div>
-        <div>
-            <h3>Atendimento</h3>
-    
-        </div>
-        
-    </div>
-</section>
-<footer>
-    Desenvolvido por <a href="#">Felipe Silva</a>
-</footer>
-{{!-- Fim contato --}}

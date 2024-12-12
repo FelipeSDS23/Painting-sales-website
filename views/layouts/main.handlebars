@@ -8,13 +8,11 @@
     <!-- Google icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/login-register.css">
     <link rel="stylesheet" href="/css/management.css">
     <link rel="stylesheet" href="/css/slider.css">
-    <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
     <!-- Início menu -->
@@ -26,7 +24,7 @@
                 <ul class="menu_navigation">
                     <li><a href="/#inicio">Início</a></li>
                     <li><a href="/#galeria">Galeria</a></li>
-                    <li><a href="/#">Contato</a></li>
+                    <li><a href="/#contato">Contato</a></li>
                     {{#if session.adminid}}
                         <li><a href="/admin/logout">Sair</a></li>
                     {{else}}
@@ -45,6 +43,49 @@
         {{/if}}      
         {{{body}}}
     </main>
+
+    {{!-- Inicio contato --}}
+    <section class="contato" id="contato">
+        <h2>Contato</h2>
+        <div class="contato-container">
+
+            <div class="redes-sociais">
+                <h3>Redes Sociais</h3>
+                <div>
+                    <img src="/img/icons/instagram.png" alt="Instagram">
+                    <img src="/img/icons/facebook.png" alt="Facebook">
+                    <img src="/img/icons/whatsapp.png" alt="Whatsapp">
+                </div>
+            </div>
+
+            <div class="sobre">
+                <h3>Sobre</h3>
+                <a href="#">Produtos</a>
+                <a href="#">Quem somos</a>
+                <a href="#">Perfuntas frequentes</a>
+            </div>
+
+            <div class="contato-div">
+                <h3>Contato</h3>
+                <span><img src="/img/icons/whatsapp-16px.png" alt="whatsapp">(xx) xxxxx-xxxx</span>
+                <span><img src="/img/icons/email.png" alt="e-mail">atendimento@quadros.com.br</span>
+            </div>
+            
+            <div>
+                <h3>Atendimento</h3>
+                <span>(xx) xxxx-xxxx</span><br>
+                <span>(xx) xxxx-xxxx</span><br>
+                Segunda a Sexta das 8h às 18h00.<br>
+            </div>
+            
+        </div>
+    </section>
+    {{!-- Fim contato --}}
+
+    <footer>
+        Desenvolvido por <a href="#">Felipe Silva</a>
+    </footer>
+
     {{!-- Meus scripts --}}
     <script src="/js/script.js"></script>
     <script src="/js/slider.js"></script>
