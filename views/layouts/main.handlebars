@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/css/slider.css">
     <link rel="stylesheet" href="/css/details.css">
     <link rel="stylesheet" href="/css/user-register.css">
+    <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
     <!-- Início menu -->
@@ -31,7 +32,7 @@
                         <li><a href="/admin/logout">Sair</a></li>
                     {{else}}
                         {{#if session.userid}}
-                            <li><a href="/user/#"><img style="width: 30px;" src="/img/icons/shopping_cart.png" alt="Sacola"></a></li>
+                            <li><a href="/paintings/cart"><img style="width: 30px;" src="/img/icons/shopping_cart.png" alt="Sacola"></a></li>
                             <li><a href="/user/logout"><img style="width: 30px;" src="/img/icons/logout.png" alt="Sair"></a></li>
                         {{else}}
                             <li><a href="/user/login">Entrar</a></li>
@@ -44,11 +45,15 @@
     </header>
     <!-- Fim menu -->
     <main class="main-content">
+
+        {{!-- Início flash messages --}}
         {{#if messages.message}}
             <div class="message" id="message">
                 {{messages.message}}
             </div>
         {{/if}}      
+        {{!-- Fim flash messages --}}
+
         {{{body}}}
     </main>
 

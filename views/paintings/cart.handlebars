@@ -1,0 +1,47 @@
+<section class="cart">
+    <h1>Carrinho</h1>
+    <ul id="cartUl">
+        
+    </ul>
+</section>
+
+
+<script>
+    const cartUl = document.querySelector("#cartUl");
+
+    if (localStorage.getItem("cart")) {
+        const cart = JSON.parse(localStorage.getItem("cart"));
+        const cartArray = cart.details
+
+        cartArray.forEach((paint) => {
+
+            paint = paint.split(",")
+
+            console.log(paint)
+
+            const id = document.createElement("span");
+            id.setAttribute("style", "display: none");
+            id.innerHTML = `${paint[0]}`
+
+            const img = document.createElement("img");
+            img.setAttribute("src", `/img/paintings/${paint[1]}`);
+
+            const name = document.createElement("span");
+            name.innerHTML = `${paint[2]}`
+
+            const price = document.createElement("span");
+            price.innerHTML = `${paint[3]}`
+
+            const li = document.createElement("li");
+            li.appendChild(id);
+            li.appendChild(img);
+            li.appendChild(name);
+            li.appendChild(price);
+
+            cartUl.appendChild(li)
+        })
+
+    } else {
+        cartUl.innerHTML = "<li>Carrinho vazio</li>"
+    }
+</script>

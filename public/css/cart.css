@@ -1,0 +1,17 @@
+.cart ul {
+    width: 500px;
+    margin: 0 auto;
+    background-color: rgb(187, 187, 187);
+    padding: 10px;
+}
+
+.cart li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.cart li img {
+    width: 80px;
+}

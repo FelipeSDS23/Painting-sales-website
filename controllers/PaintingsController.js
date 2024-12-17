@@ -145,4 +145,8 @@ module.exports = class PaintingsController {
         res.render("paintings/details", {painting})
 
     }
+
+    static async cart(req, res) {
+        res.render('paintings/cart');
+    }
 }
