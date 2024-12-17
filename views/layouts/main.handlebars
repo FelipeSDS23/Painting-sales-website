@@ -10,9 +10,11 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/dashboard.css">
-    <link rel="stylesheet" href="/css/login-register.css">
+    <link rel="stylesheet" href="/css/admin-login-register.css">
     <link rel="stylesheet" href="/css/management.css">
     <link rel="stylesheet" href="/css/slider.css">
+    <link rel="stylesheet" href="/css/details.css">
+    <link rel="stylesheet" href="/css/user-register.css">
 </head>
 <body>
     <!-- Início menu -->
@@ -28,7 +30,13 @@
                     {{#if session.adminid}}
                         <li><a href="/admin/logout">Sair</a></li>
                     {{else}}
-                        <li><a href="#">Entrar</a></li>
+                        {{#if session.userid}}
+                            <li><a href="/user/login">Carrinho</a></li>
+                            <li><a href="/user/logout">Sair</a></li>
+                        {{else}}
+                            <li><a href="/user/login">Entrar</a></li>
+                            <li><a href="/user/register">Registrar-se</a></li>
+                        {{/if}}
                     {{/if}}
                 </ul>
             </nav>

@@ -1,4 +1,4 @@
-.form-container {
+.admin-form .form-container {
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
@@ -9,24 +9,24 @@
     margin: 30px auto;
 }
 
-.form-container h1 {
+.admin-form .form-container h1 {
     text-align: center;
     margin-bottom: 1.5rem;
     color: #333;
 }
 
-.form-container .form-field-container {
+.admin-form .form-container .form-field-container {
     margin-bottom: 1rem;
 }
 
-.form-container label {
+.admin-form .form-container label {
     display: block;
     margin-bottom: 0.5rem;
     color: #333;
 }
 
-.form-container input[type="email"],
-input[type="password"] {
+.admin-form .form-container input[type="email"],
+.admin-form .form-container input[type="password"] {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -34,13 +34,13 @@ input[type="password"] {
     font-size: 1rem;
 }
 
-.form-container input[type="email"]:focus,
+.admin-form .form-container input[type="email"]:focus,
 input[type="password"]:focus {
     border-color: var(--header-menu-color);
     outline: none;
 }
 
-.form-container .submit-btn {
+.admin-form .form-container .submit-btn {
     width: 100%;
     padding: 0.75rem;
     background-color: var(--header-menu-color);
@@ -53,22 +53,22 @@ input[type="password"]:focus {
     transition: background-color 0.3s ease;
 }
 
-.form-container .submit-btn:hover {
+.admin-form .form-container .submit-btn:hover {
     background-color: #111;
 }
 
-.form-container p {
+.admin-form .form-container p {
     text-align: center;
     margin-top: 1rem;
     color: #666;
 }
 
-.form-container a {
+.admin-form .form-container a {
     color: var(--header-menu-color);
     text-decoration: none;
     font-weight: bold;
 }
 
-.form-container a:hover {
+.admin-form .form-container a:hover {
     text-decoration: underline;
 }

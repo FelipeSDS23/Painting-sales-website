@@ -61,7 +61,7 @@
 /*end of screen*/
 
 /*screen "cadastro"*/
-form {
+.admin-dashboard-screen form {
     max-width: 100%;
     margin: 20px auto;
     padding: 20px;
@@ -71,22 +71,22 @@ form {
     font-family: Arial, sans-serif;
 }
 
-.form-field-container {
+.admin-dashboard-screen .form-field-container {
     margin-bottom: 15px;
 }
 
-label {
+.admin-dashboard-screen label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="file"],
-select,
-textarea {
+.admin-dashboard-screen input[type="text"],
+.admin-dashboard-screen input[type="number"],
+.admin-dashboard-screen input[type="file"],
+.admin-dashboard-screen select,
+.admin-dashboard-screen textarea {
     width: 100%;
     padding: 10px;
     font-size: 14px;
@@ -95,16 +95,16 @@ textarea {
     box-sizing: border-box;
 }
 
-input[type="file"] {
+.admin-dashboard-screen input[type="file"] {
     padding: 3px;
 }
 
-textarea {
+.admin-dashboard-screen textarea {
     resize: vertical;
     height: 100px;
 }
 
-input:focus,
+.admin-dashboard-screen input:focus,
 textarea:focus,
 select:focus {
     border-color: var(--header-menu-color);
@@ -112,11 +112,11 @@ select:focus {
     box-shadow: 0 0 5px var(--header-menu-color);
 }
 
-input[type="file"] {
+.admin-dashboard-screen input[type="file"] {
     margin-top: 5px;
 }
 
-.submit-btn {
+.admin-dashboard-screen .submit-btn {
     background-color: var(--header-menu-color);
     font-weight: bold;
     color: #fff;
@@ -129,7 +129,7 @@ input[type="file"] {
     width: 100%;
 }
 
-.submit-btn:hover {
+.admin-dashboard-screen .submit-btn:hover {
     background-color: #222;
 }
 

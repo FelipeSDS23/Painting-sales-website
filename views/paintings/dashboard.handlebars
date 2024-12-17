@@ -50,13 +50,14 @@
     <div class="grid-container">
         {{#if paintings}}
             {{#each paintings}}
-            <a href="?id={{this.id}}">
+            <a href="/paintings/details/{{this.id}}">
                 <div class="grid-card">
                     <img src="/img/paintings/{{this.image}}" alt="#" class="card-img">
                 </div>
                 <div class="details">
                     <span class="paint-name">{{this.name}}</span><br>
                     <span class="paint-price">R$ {{this.price}},00</span>
+                    <button class="cart-button">Comprar</button>
                 </div>
             </a>
             {{/each}}

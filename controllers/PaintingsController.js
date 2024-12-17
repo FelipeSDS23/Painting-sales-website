@@ -128,4 +128,18 @@ module.exports = class PaintingsController {
         res.redirect('/admin/management');
     }
 
+    static async paintingDetails(req, res) {
+
+        const _id = req.params.id
+
+        const painting = await Painting.findOne({
+            where: {id: _id},
+            raw: true
+        }); 
+
+        console.log(painting)
+
+        res.render("paintings/details", {painting})
+
+    }
 }

@@ -1,0 +1,17 @@
+<section class="details">
+    <div class="container">
+        <div class="product-image">
+            <img src="/img/paintings/{{painting.image}}" alt="">
+        </div>
+
+        <div class="product-details">
+            <h1>{{painting.name}}</h1>
+            <p><span>Descrição:</span> {{painting.description}}</p>
+            <p><span>Altura:</span> {{painting.height}}cm</p>
+            <p><span>Largura:</span> {{painting.width}}cm</p>
+            <p><span>Tipo de Moldura:</span> {{painting.frameType}}</p>
+            <p><span>Valor:</span> R$ {{painting.price}},00</p>
+            <a href="#/{{painting}}" class="add-to-cart" id="addToCart">Adicionar ao Carrinho</a>
+        </div>
+    </div>
+</section>

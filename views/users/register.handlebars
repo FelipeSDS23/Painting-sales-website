@@ -1,0 +1,76 @@
+<section class="userRegister">
+    <h1>Registrar-se</h1>
+    <form action="/user/register" method="post">
+        <div>
+            <h2>Dados de login</h2>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required placeholder="Digite seu e-mail">
+            </div>
+            <div>
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" required placeholder="Digite sua senha">
+            </div>
+            <div>
+                <label for="confirmPassword">Confirme sua senha:</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" required
+                    placeholder="Confirme sua senha">
+            </div>
+            <div>
+                <label for="userVerificationCode">Código de verificação:</label>
+                <input type="number" name="userVerificationCode" id="userVerificationCode" required
+                    placeholder="Digite seu código de verificação">
+            </div>
+        </div>
+        <!-- Dados Pessoais -->
+        <div>
+            <h2>Dados Pessoais</h2>
+            <div>
+                <label for="fullName">Nome completo:</label>
+                <input type="text" name="fullName" id="fullName" required placeholder="Digite seu nome completo">
+            </div>
+            <div>
+                <label for="phoneNumber">Telefone:</label>
+                <input type="tel" name="phoneNumber" id="phoneNumber" required placeholder="Digite seu telefone">
+            </div>
+        </div>
+        <!-- Endereço -->
+        <div>
+            <h2>Endereço</h2>
+            <div>
+                <label for="street">Rua:</label>
+                <input type="text" name="street" id="street" required placeholder="Digite o nome da rua">
+            </div>
+            <div>
+                <label for="number">Número:</label>
+                <input type="text" name="number" id="number" required placeholder="Digite o número">
+            </div>
+            <div>
+                <label for="complement">Complemento:</label>
+                <input type="text" name="complement" id="complement" placeholder="Digite o complemento (opcional)">
+            </div>
+            <div>
+                <label for="neighborhood">Bairro:</label>
+                <input type="text" name="neighborhood" id="neighborhood" required placeholder="Digite o bairro">
+            </div>
+            <div>
+                <label for="city">Cidade:</label>
+                <input type="text" name="city" id="city" required placeholder="Digite a cidade">
+            </div>
+            <div>
+                <label for="state">Estado:</label>
+                <input type="text" name="state" id="state" required placeholder="Digite o estado">
+            </div>
+            <div>
+                <label for="zipCode">CEP:</label>
+                <input type="text" name="zipCode" id="zipCode" required placeholder="Digite o CEP">
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Criar conta" class="submit-btn">
+        </div>
+        <div>
+            <p>Já possui uma conta? <a href="/admin/login">Entrar</a></p>
+        </div>
+    </form>
+</section>

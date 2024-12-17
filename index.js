@@ -11,6 +11,7 @@ const app = express();
 // import routes
 const paintingRoutes = require('./routes/paintingRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 // import controller
 const PaintingsController = require('./controllers/PaintingsController');
@@ -52,6 +53,7 @@ app.use(express.static('public'));
 // Routes
 app.use('/paintings', paintingRoutes);
 app.use('/admin', adminRoutes);
+app.use('/user', userRoutes);
 app.get('/', PaintingsController.showAllPaintings);
 
 conn

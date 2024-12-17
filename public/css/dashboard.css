@@ -42,7 +42,7 @@
 .galeria .details {
     background-color: #fff;
     border-radius: 0px 0px 8px 8px;
-    padding: 5px;
+    padding: 0px;
     font-family: var(--menu-font);
     text-align: center;
 }
@@ -53,6 +53,18 @@
 
 .galeria .paint-price {
     font-weight: bold;
+}
+
+.galeria .cart-button {
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+    padding: 7px;
+    background-color: rgb(1, 158, 40);
+    color: #ffffff;
+    font-size: 1.05em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 /* Fim galeria */
 
