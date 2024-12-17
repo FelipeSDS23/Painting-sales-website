@@ -89,6 +89,7 @@ body {
 .header .menu_navigation {
     display: flex;
     list-style-type: none;
+    align-items: center;
 }
 
 .header .menu_navigation li {

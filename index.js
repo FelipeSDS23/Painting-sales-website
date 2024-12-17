@@ -31,10 +31,10 @@ app.use(
         secret: process.env.SECRET,
         resave: false,
         saveUninitialized: false,
-        store: new FileStore({
-            logFn: function() {},
-            path: require('path').join(require('os').tmpdir(), 'sessions')
-        }),
+        // store: new FileStore({
+        //     logFn: function() {},
+        //     path: require('path').join(require('os').tmpdir(), 'sessions')
+        // }),
         cookie: {
             secure: false,
             maxAge: 3600000,
@@ -46,6 +46,15 @@ app.use(
 
 // flash messages
 app.use(flash());
+
+// set session to res
+app.use((req, res, next) => {
+    if(req.session.userid || req.session.adminid) {
+        res.locals.session = req.session 
+    }
+
+    next()
+})
 
 // public path
 app.use(express.static('public'));

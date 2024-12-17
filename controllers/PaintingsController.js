@@ -13,7 +13,10 @@ module.exports = class PaintingsController {
             return result.get({ plain: true });
         });
 
-        res.render('paintings/dashboard', {paintings});
+        const userid = req.session.userid
+
+
+        res.render('paintings/dashboard', {paintings, userid});
 
     }
 

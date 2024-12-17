@@ -31,8 +31,8 @@
                         <li><a href="/admin/logout">Sair</a></li>
                     {{else}}
                         {{#if session.userid}}
-                            <li><a href="/user/login">Carrinho</a></li>
-                            <li><a href="/user/logout">Sair</a></li>
+                            <li><a href="/user/#"><img style="width: 30px;" src="/img/icons/shopping_cart.png" alt="Sacola"></a></li>
+                            <li><a href="/user/logout"><img style="width: 30px;" src="/img/icons/logout.png" alt="Sair"></a></li>
                         {{else}}
                             <li><a href="/user/login">Entrar</a></li>
                             <li><a href="/user/register">Registrar-se</a></li>
