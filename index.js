@@ -37,7 +37,7 @@ app.use(
         // }),
         cookie: {
             secure: false,
-            maxAge: 3600000,
+            maxAge: 6000000,
             // expires: new Date(Date.now() + 360000),
             httpOnly: true
         }

@@ -18,7 +18,7 @@
 
 
 {{!-- Início carrinho --}}
-<script>
+<script> //adiciona itens ao localstorage
     const addToCartBtn = document.querySelector("#addToCart");
 
     addToCartBtn.addEventListener("click", () => {
@@ -34,6 +34,8 @@
         cart.details.push(paintingDetails);
 
         localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Movido para o carrinho!")
     })
 </script>
 {{!-- Fim carrinho --}}

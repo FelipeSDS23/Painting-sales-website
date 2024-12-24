@@ -1,23 +1,62 @@
 <section class="cart">
     <h1>Carrinho</h1>
     <ul id="cartUl">
-        
+
     </ul>
+    <div>
+        <span>Valor total</span>
+        <span id="ValorTotal">0</span>
+    </div>
+
+    <form action="/paintings/cart" method="post">
+        <input type="text" name="ids" hidden id="finishInput">
+        <input type="submit" value="Finalizar compra">
+    </form>
+    {{!-- <a href="" id="finishLink"><Button>Finalizar compra</Button></a> --}}
 </section>
 
 
-<script>
+<script> //monta ul do carrinho dinamicamente, remove items do carrinho
     const cartUl = document.querySelector("#cartUl");
 
     if (localStorage.getItem("cart")) {
-        const cart = JSON.parse(localStorage.getItem("cart"));
-        const cartArray = cart.details
+        const itensLocalStorage = JSON.parse(localStorage.getItem("cart")).details;
 
-        cartArray.forEach((paint) => {
+        let valorTotal = 0;
+
+        itensLocalStorage.forEach((paint) => {
 
             paint = paint.split(",")
 
-            console.log(paint)
+            valorTotal += Number(paint[3])
+
+            const removeBtn = document.createElement("button");
+            removeBtn.innerHTML = "Remover";
+
+            //função remover item do local storage e LI do dom (Remover item do carrinho)
+            removeBtn.onclick = function removeItem(e) {
+
+                const itemLi = e.target.parentElement
+
+                // Subtrai valor do item do valor total
+                const itemPrice = parseFloat(e.target.parentElement.children[3].innerHTML.replace("R$", "").trim());
+                valorTotal -= itemPrice;
+
+                // Pega o índice (baseado na posição da LI dentro da UL)
+                const liIndex = Array.from(cartUl.children).indexOf(itemLi);
+
+                // Remove item do localStorage
+                itensLocalStorage.splice(liIndex, 1);
+
+                // Atualiza localStorage com novos items
+                localStorage.setItem("cart", JSON.stringify({ details: itensLocalStorage }));
+
+                // Remove LI do DOM
+                cartUl.removeChild(itemLi);
+
+                addPaintIdToUrl()
+                addTotalValue()
+            };
 
             const id = document.createElement("span");
             id.setAttribute("style", "display: none");
@@ -30,18 +69,38 @@
             name.innerHTML = `${paint[2]}`
 
             const price = document.createElement("span");
-            price.innerHTML = `${paint[3]}`
+            price.innerHTML = `R$ ${paint[3]}`
 
             const li = document.createElement("li");
             li.appendChild(id);
             li.appendChild(img);
             li.appendChild(name);
             li.appendChild(price);
+            li.appendChild(removeBtn);
 
             cartUl.appendChild(li)
         })
 
+        function addTotalValue() {
+            const valorTotalSpan = document.querySelector("#ValorTotal");
+            valorTotalSpan.innerHTML = valorTotal
+        }
+
+        addTotalValue();
+
+        function addPaintIdToUrl() {
+            const finishInput = document.querySelector("#finishInput");
+
+            const ulArray = Array.from(cartUl.children)
+            const ids = ulArray.map((li) => {
+                return li.children[0].innerHTML
+            })
+
+            finishInput.value = ids;
+        }
+        addPaintIdToUrl()
     } else {
         cartUl.innerHTML = "<li>Carrinho vazio</li>"
     }
+
 </script>

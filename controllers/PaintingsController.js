@@ -1,6 +1,8 @@
 const fs = require('fs');
 const Painting = require('../models/Painting');
 
+const gerar_link_de_pagamento = require("../helpers/api-mercado-pago");
+
 module.exports = class PaintingsController {
 
     static async showAllPaintings(req, res) {
@@ -148,5 +150,21 @@ module.exports = class PaintingsController {
 
     static async cart(req, res) {
         res.render('paintings/cart');
+    }
+
+    static async cartPost(req, res) {
+
+        const idsString = req.body.ids;
+        const idsArray = idsString.split(",");
+
+  
+        const paintings = await Painting.findAll({
+            where: {id: idsArray},
+            raw: true
+        }); 
+    
+        // console.log(paintings)
+        gerar_link_de_pagamento(res, paintings);
+
     }
 }

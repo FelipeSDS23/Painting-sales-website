@@ -12,5 +12,6 @@ router.get('/update/:id', PaintingsController.paintingUpdateGet);
 router.post('/update', imageUpload.single('image'), PaintingsController.paintingUpdatePost);
 router.get('/details/:id', imageUpload.single('image'), PaintingsController.paintingDetails);
 router.get('/cart', PaintingsController.cart);
+router.post('/cart', PaintingsController.cartPost);
 
 module.exports = router;
