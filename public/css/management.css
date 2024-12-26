@@ -27,7 +27,7 @@
     text-align: center;
     font-size: 16px;
     font-weight: bold;
-    background-color: var(--header-menu-color);
+    background-color: #4b93d6;
     /* cor de fundo do botão */
     color: white;
     border-radius: 5px;
@@ -36,7 +36,7 @@
 }
 
 #linksList li:hover {
-    background-color: #222;
+    background-color: #21588b;
     /* cor ao passar o mouse */
 }
 
@@ -117,7 +117,7 @@ select:focus {
 }
 
 .admin-dashboard-screen .submit-btn {
-    background-color: var(--header-menu-color);
+    background-color: #4b93d6;
     font-weight: bold;
     color: #fff;
     padding: 10px 15px;
@@ -130,7 +130,7 @@ select:focus {
 }
 
 .admin-dashboard-screen .submit-btn:hover {
-    background-color: #222;
+    background-color: #135592;
 }
 
 /*end of screen "cadastro"*/
@@ -146,7 +146,7 @@ th,
 td {
     padding: 0px;
     text-align: left;
-    border: 1px solid rgba(0, 0, 0, 0.384);
+    border: 1px solid rgba(161, 152, 152, 0.384);
     text-align: center;
 }
 
@@ -155,20 +155,21 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: #969a9e;
+    background-color: #9ba4ad;
 }
 
-td form {
+td .edit-remove-form {
     /* background-color: blue; */
     background-color: initial;
     box-shadow: none;
 }
 
-td input {
-    background-color: #222;
+td .edit-remove-form input {
+    background-color: #4b93d6;
     color: #fff;
-    padding: 7px 25px;
+    padding: 10px 25px;
     border-radius: 5px;
+    border: none;
     cursor: pointer;
 }
 

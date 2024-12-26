@@ -1,0 +1,84 @@
+/* Estilos gerais */
+section.userLogin {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 50px auto;
+}
+
+section.userLogin h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulário de login */
+section.userLogin form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+section.userLogin label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+section.userLogin input[type="email"],
+section.userLogin input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+section.userLogin input[type="email"]::placeholder,
+section.userLogin input[type="password"]::placeholder {
+    color: #aaa;
+}
+
+/* Botão de login */
+section.userLogin .submit-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+section.userLogin .submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Link de registro */
+section.userLogin div:last-child {
+    text-align: center;
+    margin-top: 15px;
+}
+
+section.userLogin div:last-child p {
+    font-size: 14px;
+    color: #555;
+}
+
+section.userLogin div:last-child a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section.userLogin div:last-child a:hover {
+    text-decoration: underline;
+}

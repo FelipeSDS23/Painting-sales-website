@@ -1,17 +1,103 @@
-.cart ul {
-    width: 500px;
-    margin: 0 auto;
-    background-color: rgb(187, 187, 187);
-    padding: 10px;
+section.cart {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-.cart li {
+section.cart h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Lista de itens do carrinho */
+section.cart ul#cartUl {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+section.cart ul#cartUl li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+section.cart ul#cartUl li:last-child {
+    border-bottom: none;
+}
+
+section.cart ul#cartUl img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+section.cart ul#cartUl span {
+    flex: 1;
+    margin: 0 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+section.cart ul#cartUl button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+section.cart ul#cartUl button:hover {
+    background-color: #c0392b;
+}
+
+/* Valor total */
+section.cart > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
+    margin: 20px 0;
+    padding: 10px;
+    border-top: 2px solid #ddd;
 }
 
-.cart li img {
-    width: 80px;
+section.cart > div span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+section.cart span#ValorTotal {
+    color: #27ae60;
+}
+
+/* Botão de finalizar compra */
+section.cart form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+section.cart input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+section.cart input[type="submit"]:hover {
+    background-color: #2980b9;
 }

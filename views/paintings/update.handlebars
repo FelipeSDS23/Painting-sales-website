@@ -1,42 +1,47 @@
-<h1>UPDATE</h1>
-<form action="/paintings/update" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="{{painting.id}}">
-    <div class="form-field-container">
-        <label for="name">Nome do quadro:</label>
-        <input type="text" name="name" id="name" required="true" placeholder="Digite o nome do quadro" value="{{painting.name}}">
-    </div>
-    <div class="form-field-container">
-        <label for="description">Descrição:</label>
-        <textarea name="description" id="description" required="true" placeholder="Digite a descrição do quadro" maxlength="60000">{{painting.description}}</textarea>
-    </div>
-    <div class="form-field-container">
-        <label for="height">Altura (cm):</label>
-        <input type="number" name="height" id="height" required="true"
-            placeholder="Digite a altura em centimetros do quadro" value={{painting.height}}>
-    </div>
-    <div class="form-field-container">
-        <label for="width">Largura (cm):</label>
-        <input type="number" name="width" id="width" required="true"
-            placeholder="Digite a largura em centimetros do quadro" value={{painting.width}}>
-    </div>
-    <div class="form-field-container">
-        <label for="frameType">Escolha o tipo de moldura:</label>
-        <select id="frameType" name="frameType">
-            <option value="madeira">Madeira</option>
-            <option value="metal">Metal</option>
-            <option value="acrilico">Acrílico</option>
-        </select>
-    </div>
-    <div class="form-field-container">
-        <label for="price">Preço:</label>
-        <input type="number" name="price" id="price" required="true" placeholder="Digite a preço do quadro" value={{painting.price}}>
-    </div>
-    <div class="form-field-container">
-        <label for="upload-image">Imagem (png | jpg | jpeg):</label>
-        <input type="file" id="upload-image" name="image" accept="image/*">
-    </div>
+<section class="admin-dashboard-screen">
+    <h1>UPDATE</h1>
+    <form action="/paintings/update" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{painting.id}}">
+        <div class="form-field-container">
+            <label for="name">Nome do quadro:</label>
+            <input type="text" name="name" id="name" required="true" placeholder="Digite o nome do quadro"
+                value="{{painting.name}}">
+        </div>
+        <div class="form-field-container">
+            <label for="description">Descrição:</label>
+            <textarea name="description" id="description" required="true" placeholder="Digite a descrição do quadro"
+                maxlength="60000">{{painting.description}}</textarea>
+        </div>
+        <div class="form-field-container">
+            <label for="height">Altura (cm):</label>
+            <input type="number" name="height" id="height" required="true"
+                placeholder="Digite a altura em centimetros do quadro" value={{painting.height}}>
+        </div>
+        <div class="form-field-container">
+            <label for="width">Largura (cm):</label>
+            <input type="number" name="width" id="width" required="true"
+                placeholder="Digite a largura em centimetros do quadro" value={{painting.width}}>
+        </div>
+        <div class="form-field-container">
+            <label for="frameType">Escolha o tipo de moldura:</label>
+            <select id="frameType" name="frameType">
+                <option value="madeira">Madeira</option>
+                <option value="metal">Metal</option>
+                <option value="acrilico">Acrílico</option>
+            </select>
+        </div>
+        <div class="form-field-container">
+            <label for="price">Preço:</label>
+            <input type="number" name="price" id="price" required="true" placeholder="Digite a preço do quadro"
+                value={{painting.price}}>
+        </div>
+        <div class="form-field-container">
+            <label for="upload-image">Imagem (png | jpg | jpeg):</label>
+            <input type="file" id="upload-image" name="image" accept="image/*">
+        </div>
 
-    <div class="form-field-container">
-        <input type="submit" value="Atualizar" class="submit-btn">
-    </div>
-</form>
+        <div class="form-field-container">
+            <input type="submit" value="Atualizar" class="submit-btn">
+        </div>
+    </form>
+</section>

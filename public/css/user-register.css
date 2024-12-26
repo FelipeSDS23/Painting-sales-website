@@ -1,0 +1,117 @@
+/* Estilos gerais */
+section.userRegister {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+section.userRegister h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section.userRegister h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #3498db;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Container principal para dividir as seções */
+section.userRegister .form-fields-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+section.userRegister .form-fields-section {
+    flex: 1;
+    min-width: calc(33% - 20px);
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilos de campos de entrada */
+section.userRegister label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+section.userRegister input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+section.userRegister input::placeholder {
+    color: #aaa;
+}
+
+/* Botão de criar conta */
+section.userRegister .submit-btn {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+section.userRegister .submit-btn:hover {
+    background-color: #219150;
+}
+
+/* Link para login */
+section.userRegister div:last-child {
+    text-align: left;
+    margin-top: 15px;
+}
+
+section.userRegister div:last-child p {
+    font-size: 14px;
+    color: #555;
+}
+
+section.userRegister div:last-child a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section.userRegister div:last-child a:hover {
+    text-decoration: underline;
+}
+
+section.userRegister .to-login-div p {
+    text-align: center;
+}
+
+
+@media screen and (max-width: 800px) {
+    section.userRegister .form-fields-container {
+        flex-direction: column;
+    }
+}

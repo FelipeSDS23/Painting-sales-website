@@ -84,11 +84,11 @@
                             <td>{{this.createdAt}}</td>
                             <td>{{this.updatedAt}}</td>
                             <td>
-                                <form action="/paintings/update/{{this.id}}" method="get">
+                                <form action="/paintings/update/{{this.id}}" class="edit-remove-form" method="get">
                                     <input type="submit" value="Editar">
                                 </form> 
                             <td>
-                                <form action="/paintings/delete/{{this.id}}" method="post">
+                                <form action="/paintings/delete/{{this.id}}" class="edit-remove-form" method="post">
                                     <input type="submit" value="Excluir">
                                 </form> 
                             </td>

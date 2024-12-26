@@ -52,7 +52,7 @@ body {
 .message { /* flash messages */
     padding: 1em;
     color: #fff;
-    background-color: var(--header-menu-color);
+    background-color: #3498db;
     border-radius: 5px;
     text-align: center;
     margin: 20px auto 20px auto;
