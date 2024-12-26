@@ -11,7 +11,12 @@
             <p><span>Largura:</span> {{painting.width}}cm</p>
             <p><span>Tipo de Moldura:</span> {{painting.frameType}}</p>
             <p><span>Valor:</span> R$ {{painting.price}},00</p>
-            <span data="{{painting.id}},{{painting.image}},{{painting.name}},{{painting.price}}" class="add-to-cart" id="addToCart">Adicionar ao Carrinho</span>
+            {{#if session.userid}}
+                <span data="{{painting.id}},{{painting.image}},{{painting.name}},{{painting.price}}" class="add-to-cart" id="addToCart">Adicionar ao Carrinho</span>
+            {{else}}
+                <a href="http://localhost:3000/user/login"><span class="add-to-cart">Entrar</span></a>
+            {{/if}}
+
         </div>
     </div>
 </section>
@@ -24,8 +29,8 @@
     addToCartBtn.addEventListener("click", () => {
         const paintingDetails = addToCart.getAttribute("data");
 
-        if(!localStorage.getItem("cart")) {
-            localStorage.setItem("cart", JSON.stringify({details: [paintingDetails]}));
+        if (!localStorage.getItem("cart")) {
+            localStorage.setItem("cart", JSON.stringify({ details: [paintingDetails] }));
             return;
         }
 
