@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/user-register.css">
     <link rel="stylesheet" href="/css/cart.css">
     <link rel="stylesheet" href="/css/user-login.css">
+    <link rel="stylesheet" href="/css/termos-de-uso.css">
 </head>
 <body>
     <!-- Início menu -->
@@ -37,7 +38,7 @@
                             <li><a href="/user/logout"><img style="width: 30px;" src="/img/icons/logout.png" alt="Sair"></a></li>
                         {{else}}
                             <li><a href="/user/login">Entrar</a></li>
-                            <li><a href="/user/register">Registrar-se</a></li>
+                            <li><a href="/user/register">Cadastrar</a></li>
                         {{/if}}
                     {{/if}}
                 </ul>
@@ -77,12 +78,13 @@
                 <a href="#">Produtos</a>
                 <a href="#">Quem somos</a>
                 <a href="#">Perfuntas frequentes</a>
+                <a href="/user/termos">Termo de uso</a>
             </div>
 
             <div class="contato-div">
                 <h3>Contato</h3>
                 <span><img src="/img/icons/whatsapp-16px.png" alt="whatsapp">(xx) xxxxx-xxxx</span>
-                <span><img src="/img/icons/email.png" alt="e-mail">atendimento@quadros.com.br</span>
+                <span><img src="/img/icons/email.png" alt="e-mail">atendimento@quadros&quadros.com.br</span>
             </div>
             
             <div>
@@ -97,11 +99,12 @@
     {{!-- Fim contato --}}
 
     <footer>
-        Desenvolvido por <a href="https://www.linkedin.com/in/felipe-santos-7296b8213/" target="_blank">Felipe Silva</a>
+        <p>&copy; 2025 Quadros&Quadros. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <a href="https://www.linkedin.com/in/felipe-santos-7296b8213/" target="_blank">Felipe Silva</a></p>
     </footer>
 
     {{!-- Meus scripts --}}
     <script src="/js/script.js"></script>
-    <script src="/js/slider.js"></script>
+    {{!-- <script src="/js/slider.js"></script> --}}
 </body>
 </html>

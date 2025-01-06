@@ -1,0 +1,26 @@
+.termo-de-uso {
+    padding: 20px 0px;
+    font-family: var(--menu-font);
+}
+
+.termo-de-uso h1{
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.termo-de-uso h2{
+    margin: 7px 0px;
+}
+
+.termo-de-uso p{
+    margin: 7px 0px;
+    text-indent: 5px;
+}
+
+.termo-de-uso div {
+    background-color: #fff;
+    max-width: 900px;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 auto;
+}

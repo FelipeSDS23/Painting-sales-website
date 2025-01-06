@@ -40,21 +40,21 @@ function hideElementAfterSomeTime(element, time) {
 }
 // Fim controle de exibição das flash messages
 
-// Início dashboard administrador
-const dashboardScreens = Array.from(document.querySelector('#adminDashboardScreen').children);
-const screenLinks = Array.from(document.querySelector('#linksList').children);
+// // Início dashboard administrador
+// const dashboardScreens = Array.from(document.querySelector('#adminDashboardScreen').children);
+// const screenLinks = Array.from(document.querySelector('#linksList').children);
 
-screenLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
+// screenLinks.forEach(link => {
+//     link.addEventListener("click", (e) => {
 
-        dashboardScreens.forEach(screen => {
-            if (e.target.getAttribute("screenLink") == screen.getAttribute("screen")) {
-                screen.style.display = "block"
-            } else {
-                screen.style.display = "none"
-            }
-        })
+//         dashboardScreens.forEach(screen => {
+//             if (e.target.getAttribute("screenLink") == screen.getAttribute("screen")) {
+//                 screen.style.display = "block"
+//             } else {
+//                 screen.style.display = "none"
+//             }
+//         })
 
-    })
-});
-// Fim dashboard administrador
+//     })
+// });
+// // Fim dashboard administrador

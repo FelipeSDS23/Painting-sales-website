@@ -10,5 +10,6 @@ router.post('/login', UserController.loginPost);
 router.get('/register', UserController.register);
 router.post('/register', UserController.registerPost);
 router.get('/logout', UserController.logout);
+router.get('/termos', UserController.termosDeUso);
 
 module.exports = router;

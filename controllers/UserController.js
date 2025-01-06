@@ -124,4 +124,8 @@ module.exports = class UserController {
         res.redirect('/');
     }
 
+    static async termosDeUso(req, res) {
+        res.render('users/termos');
+    }
+
 }
