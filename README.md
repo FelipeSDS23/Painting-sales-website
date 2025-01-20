@@ -2,6 +2,8 @@
 
 Bem-vindo ao repositório do projeto **Quadros&Quadros**, um site de e-commerce dedicado à venda de quadros exclusivos. Este projeto está atualmente em desenvolvimento e visa proporcionar uma experiência ágil, intuitiva e personalizada para os usuários.
 
+<img src="./screenshots/dashboard.png" alt="Página inical">
+
 ---
 
 ## Tecnologias Utilizadas
@@ -89,7 +91,32 @@ Bem-vindo ao repositório do projeto **Quadros&Quadros**, um site de e-commerce 
 - [x] Configuração inicial do projeto
 - [x] CRUD de produtos
 - [x] Sistema de login e autenticação
-- [] Integração com gateway de pagamento
+- [x] Integração com gateway de pagamento
 - [] Desenvolvimento da interface do usuário
+- [] Adição de filtragem por categorias, tamanhos e preços
+- [] Integração com api para calculo de frete
 
 ---
+
+7. Screenshots:
+
+* Registro de usuário
+<img src="./screenshots/register.png" alt="Autenticação">
+
+* Login de usuário
+<img src="./screenshots/login.png" alt="Login">
+
+* Autenticação de usuário
+<img src="./screenshots/auth.png" alt="Autenticação">
+
+* Carrinho de compras
+<img src="./screenshots/cart.png" alt="Carrinho">
+
+* Conexão com mercado pago
+<img src="./screenshots/checkout.png.png" alt="Mercado pago">
+
+* Painel de administrador 1
+<img src="./screenshots/adm-dashboard.png.png" alt="Painel de administrador 1">
+
+* Painel de administrador 2
+<img src="./screenshots/adm-dashboard-2.png" alt="Painel de administrador 2">
