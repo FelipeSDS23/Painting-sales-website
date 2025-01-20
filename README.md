@@ -1,3 +1,4 @@
+<p style='color: red'>!!!ATENÇÃO, PROJETO AINDA EM DESNVOLVIMENTO!!!</p>
 # Quadros&Quadros - E-commerce de Quadros
 
 Bem-vindo ao repositório do projeto **Quadros&Quadros**, um site de e-commerce dedicado à venda de quadros exclusivos. Este projeto está atualmente em desenvolvimento e visa proporcionar uma experiência ágil, intuitiva e personalizada para os usuários.
@@ -82,7 +83,7 @@ Bem-vindo ao repositório do projeto **Quadros&Quadros**, um site de e-commerce 
    npm start
    ```
 
-6. O servidor estará disponível em `http://localhost:3000`.
+6. O servidor estará disponível em `http://localhost:3000`, a página do administardor pode ser acessada em `http://localhost:3000/admin/`.
 
 ---
 
