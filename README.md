@@ -1,4 +1,5 @@
-<p style='color: red'>!!!ATENÇÃO, PROJETO AINDA EM DESNVOLVIMENTO!!!</p>
+<p>!!!ATENÇÃO, PROJETO AINDA EM DESENVOLVIMENTO!!!</p>
+
 # Quadros&Quadros - E-commerce de Quadros
 
 Bem-vindo ao repositório do projeto **Quadros&Quadros**, um site de e-commerce dedicado à venda de quadros exclusivos. Este projeto está atualmente em desenvolvimento e visa proporcionar uma experiência ágil, intuitiva e personalizada para os usuários.
