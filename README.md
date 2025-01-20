@@ -113,10 +113,10 @@ Bem-vindo ao repositório do projeto **Quadros&Quadros**, um site de e-commerce 
 <img src="./screenshots/cart.png" alt="Carrinho">
 
 * Conexão com mercado pago
-<img src="./screenshots/checkout.png.png" alt="Mercado pago">
+<img src="./screenshots/checkout.png" alt="Mercado pago">
 
 * Painel de administrador 1
-<img src="./screenshots/adm-dashboard.png.png" alt="Painel de administrador 1">
+<img src="./screenshots/adm-dashboard.png" alt="Painel de administrador 1">
 
 * Painel de administrador 2
 <img src="./screenshots/adm-dashboard-2.png" alt="Painel de administrador 2">
