@@ -66,6 +66,25 @@
     background-color: #218838;
 }
 
+/* INICIO ZOOM DA IMAGEM */
+.img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /*set the size of the lens:*/
+    width: 150px;
+    height: 150px;
+    cursor: zoom-in;
+}
+
+.img-zoom-result {
+    border: 1px solid #d4d4d4;
+    /*set the size of the result div:*/
+    width: 350px;
+    height: 350px;
+    margin: 10px auto;
+}
+/* FIM ZOOM DA IMAGEM */
+
 
 @media screen and (max-width: 800px) {
     .details .container {
