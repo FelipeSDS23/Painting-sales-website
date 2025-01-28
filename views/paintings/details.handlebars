@@ -2,7 +2,9 @@
     <div class="container">
         
         <div class="product-image" style="position: relative;">
-            <img id="myimage" src="/img/paintings/{{painting.image}}">
+            {{#each painting.imgArray}}
+                <img id="myimage" src="{{this}}">
+            {{/each}}
         </div>
 
         <div class="product-details">

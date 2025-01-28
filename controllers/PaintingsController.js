@@ -14,11 +14,49 @@ module.exports = class PaintingsController {
             order: [['createdAt', 'DESC']]
         });
 
-        const paintings = paintingsData.map((result) => {
+        let paintings = paintingsData.map((result) => {
             return result.get({ plain: true });
         });
 
-        const userid = req.session.userid
+        const userid = req.session.userid;
+
+
+
+
+        function listarArquivosPorPasta(pastaMae) {
+            const resultado = {};
+
+            // Lê todas as pastas e arquivos dentro da pasta mãe
+            const pastasFilhas = fs.readdirSync(pastaMae).filter(item => {
+                const caminhoItem = path.join(pastaMae, item);
+                return fs.statSync(caminhoItem).isDirectory(); // Filtra apenas pastas
+            });
+
+            // Para cada pasta filha, lista seus arquivos
+            pastasFilhas.forEach(pasta => {
+                const caminhoPasta = path.join(pastaMae, pasta);
+                const arquivos = fs.readdirSync(caminhoPasta).filter(item => {
+                    const caminhoItem = path.join(caminhoPasta, item);
+                    return fs.statSync(caminhoItem).isFile(); // Filtra apenas arquivos
+                });
+
+                resultado[pasta] = arquivos;
+            });
+
+            return resultado;
+        }
+
+        let imgArray = listarArquivosPorPasta('public/img/paintings');
+
+        //cria uma chave em cada item de painting com um array com o nome das suas imagens
+        paintings.forEach(item => {
+            item.imgArray = imgArray[`${item.name}`];
+            item.cover = imgArray[`${item.name}`][0];
+        });
+
+
+
+
 
 
         res.render('paintings/dashboard', { paintings, userid });
@@ -46,10 +84,10 @@ module.exports = class PaintingsController {
             AdminId
         };
 
-        
+
         let pastaDoItem = `public/img/paintings/${name}`;
         organizar_pastas_de_imagens(pastaDoItem);
-        
+
 
         try {
 
@@ -81,7 +119,7 @@ module.exports = class PaintingsController {
             return
         }
 
-        const imgName = painting.toJSON().image
+        const imgName = painting.name
 
         await Painting.destroy({
             where: { id: _id }
@@ -89,11 +127,14 @@ module.exports = class PaintingsController {
 
         const filePath = `public/img/paintings/${imgName}`;
 
-        fs.unlink(filePath, (erro) => {
-            if (erro) {
-                console.error('Erro ao deletar o arquivo:', erro);
+        console.log("***********")
+        console.log(filePath)
+
+        fs.rm(filePath, { recursive: true, force: true }, (err) => {
+            if (err) {
+                console.error('Erro ao remover a pasta:', err);
             } else {
-                console.log('Arquivo deletado com sucesso!');
+                console.log('Pasta removida com sucesso!');
             }
         });
 
@@ -153,7 +194,35 @@ module.exports = class PaintingsController {
             raw: true
         });
 
-        console.log(painting)
+
+
+
+
+        function listarArquivos(pasta) {
+            try {
+                // Lê o conteúdo da pasta
+                const arquivos = fs.readdirSync(pasta);
+
+                // Filtra apenas os arquivos (não pastas)
+                const arquivosFiltrados = arquivos.filter(arquivo => fs.lstatSync(path.join(pasta, arquivo)).isFile());
+
+                return arquivosFiltrados;
+            } catch (error) {
+                console.error("Erro ao ler a pasta:", error);
+                return [];
+            }
+        }
+
+        let imgArray = listarArquivos(`public/img/paintings/${painting.name}`);
+        let imgArrayPaths = imgArray.map(item => `/img/paintings/${painting.name}/${item}`);
+
+        painting.imgArray = imgArrayPaths;
+
+
+
+
+
+
 
         res.render("paintings/details", { painting })
 
