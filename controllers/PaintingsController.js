@@ -1,7 +1,10 @@
 const fs = require('fs');
 const Painting = require('../models/Painting');
+const path = require('path');
 
+// helpers
 const gerar_link_de_pagamento = require("../helpers/api-mercado-pago");
+const organizar_pastas_de_imagens = require("../helpers/gerencia-pastas-de-imagens");
 
 module.exports = class PaintingsController {
 
@@ -18,30 +21,35 @@ module.exports = class PaintingsController {
         const userid = req.session.userid
 
 
-        res.render('paintings/dashboard', {paintings, userid});
+        res.render('paintings/dashboard', { paintings, userid });
 
     }
 
     static async paintingRegister(req, res) {
 
-        const {name, description, height, width, frameType, price} = req.body;
+        const { name, description, height, width, frameType, price } = req.body;
         const AdminId = req.session.adminid;
 
         let image = '';
-        if(req.file) {
-            image = req.file.filename;
-        }
+        // if(req.file) {
+        //     image = req.file.filename;
+        // }
 
         const painting = {
             name,
             description,
-            height, 
-            width, 
-            frameType, 
-            price, 
+            height,
+            width,
+            frameType,
+            price,
             image,
             AdminId
         };
+
+        
+        let pastaDoItem = `public/img/paintings/${name}`;
+        organizar_pastas_de_imagens(pastaDoItem);
+        
 
         try {
 
@@ -55,9 +63,9 @@ module.exports = class PaintingsController {
             req.flash('message', 'Erro ao cadastrar, por favor tente mais tarde!');
             const session = req.session;
             res.redirect('/admin/management');
-            
+
         }
-        
+
     }
 
     static async paintingDelete(req, res) {
@@ -65,10 +73,10 @@ module.exports = class PaintingsController {
         const _id = req.params.id
 
         const painting = await Painting.findOne({
-            where: {id: _id}
+            where: { id: _id }
         });
 
-        if(!painting) {
+        if (!painting) {
             res.redirect(res.render('admin/management'))
             return
         }
@@ -76,19 +84,19 @@ module.exports = class PaintingsController {
         const imgName = painting.toJSON().image
 
         await Painting.destroy({
-            where: {id: _id}
+            where: { id: _id }
         })
 
         const filePath = `public/img/paintings/${imgName}`;
 
         fs.unlink(filePath, (erro) => {
             if (erro) {
-              console.error('Erro ao deletar o arquivo:', erro);
+                console.error('Erro ao deletar o arquivo:', erro);
             } else {
-              console.log('Arquivo deletado com sucesso!');
+                console.log('Arquivo deletado com sucesso!');
             }
         });
-        
+
         req.flash('message', 'Exclusão realizada com sucesso!')
 
         res.redirect('/admin/management')
@@ -99,21 +107,24 @@ module.exports = class PaintingsController {
         const _id = req.params.id
 
         const painting = await Painting.findOne({
-            where: {id: _id},
+            where: { id: _id },
             raw: true
-        }); 
+        });
 
-        res.render('paintings/update', {painting})
-        
+        res.render('paintings/update', { painting })
+
     }
 
     static async paintingUpdatePost(req, res) {
 
-        const {id, name, description, height, width, frameType, price} = req.body
+        const { id, name, description, height, width, frameType, price } = req.body
+
 
         let image = '';
-        if(req.file) {
-            image = req.file.filename;
+
+        if (req.files) {
+            let pastaDoItem = `public/img/paintings/${name}`;
+            organizar_pastas_de_imagens(pastaDoItem);
         }
 
         const painting = {
@@ -126,7 +137,7 @@ module.exports = class PaintingsController {
             image
         }
 
-        await Painting.update(painting, {where: {id: id}})
+        await Painting.update(painting, { where: { id: id } })
 
         req.flash('message', 'Registro atualizado com sucesso!')
 
@@ -138,13 +149,13 @@ module.exports = class PaintingsController {
         const _id = req.params.id
 
         const painting = await Painting.findOne({
-            where: {id: _id},
+            where: { id: _id },
             raw: true
-        }); 
+        });
 
         console.log(painting)
 
-        res.render("paintings/details", {painting})
+        res.render("paintings/details", { painting })
 
     }
 
@@ -157,12 +168,12 @@ module.exports = class PaintingsController {
         const idsString = req.body.ids;
         const idsArray = idsString.split(",");
 
-  
+
         const paintings = await Painting.findAll({
-            where: {id: idsArray},
+            where: { id: idsArray },
             raw: true
-        }); 
-    
+        });
+
         // console.log(paintings)
         gerar_link_de_pagamento(res, paintings);
 
