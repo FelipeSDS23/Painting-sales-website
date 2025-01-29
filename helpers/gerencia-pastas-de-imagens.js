@@ -3,14 +3,17 @@ const path = require('path');
 
 async function organizar_pastas_de_imagens(pastaDoItem) {
 
-    const temp = `public/img/paintings/temp`;
+    const temp = `public/img/paintings/temp`; // Diretório temporário das imagens
 
     async function excluiArquivosDaPasta(caminho) {
         await fs.readdir(caminho, (err, arquivos) => {
+
+            // Verifica se a pasta existe
             if (err) {
                 console.error('Erro ao ler a pasta:', err);
                 return;
             }
+
 
             arquivos.forEach((arquivo) => {
                 const caminhoArquivo = path.join(caminho, arquivo);
@@ -36,7 +39,6 @@ async function organizar_pastas_de_imagens(pastaDoItem) {
         });
     }
 
-    //move as imagens do arquivo da pasta temp para sua respectiva pasta
     async function moverArquivos(pastaOrigem, pastaDestino) {
         fs.readdir(pastaOrigem, (err, arquivos) => {
             if (err) {
@@ -58,15 +60,13 @@ async function organizar_pastas_de_imagens(pastaDoItem) {
         });
     }
 
-
-    if (!fs.existsSync(pastaDoItem)) { //verifica se a pasta do arquivo ainda não existe
+    if (!fs.existsSync(pastaDoItem)) { // Verifica se a pasta do arquivo ainda não existe
         fs.mkdirSync(pastaDoItem);
-    } else {    //se a pasta já existir remove todo o seu conteúdo
-        excluiArquivosDaPasta(pastaDoItem);
+    } else {    // Se a pasta já existir remove todo o seu conteúdo
+        excluiArquivosDaPasta(pastaDoItem); // Exclui todos os arquivos da pasta enviada como parâmetro
     }
 
-
-    moverArquivos(temp, pastaDoItem);
+    moverArquivos(temp, pastaDoItem); // Move as imagens do arquivo da pasta temp para sua respectiva pasta
 
 }
 

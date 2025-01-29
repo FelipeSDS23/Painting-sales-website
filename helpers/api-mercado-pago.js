@@ -9,8 +9,7 @@ async function gerar_link_de_pagamento(res, paintings) {
             currency_id: 'BRL',
             unit_price: Number(painting.price),
         }
-    })
-
+    });
 
 	// Step 1: Import the parts of the module you want to use
 	const { MercadoPagoConfig, Preference } = require("mercadopago");

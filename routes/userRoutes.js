@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
+
+// Controllers
 const UserController = require("../controllers/UserController");
 
-// helpers
-// const { imageUpload } = require("../helpers/image-upload");
-
+// Routes
 router.get('/login', UserController.login);
 router.post('/login', UserController.loginPost);
 router.get('/register', UserController.register);

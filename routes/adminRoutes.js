@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
+
+// Controllers
 const AdminController = require("../controllers/AdminController");
 
-// helpers
+// Helpers
 const checkAuth = require('../helpers/authAdmin').checkAuthAdmin;
 
+// Routes
 router.get('/', checkAuth, AdminController.login);
 router.get('/management', checkAuth, AdminController.showMainManagementPage);
 router.get('/login', AdminController.login);

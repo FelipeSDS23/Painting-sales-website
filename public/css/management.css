@@ -136,6 +136,10 @@ select:focus {
 /*end of screen "cadastro"*/
 
 /*screen "listar itens"*/
+.tableScreen {
+    overflow-x: scroll
+}
+
 table {
     /* width: 100%; */
     border-collapse: collapse;

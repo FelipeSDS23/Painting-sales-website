@@ -1,37 +1,13 @@
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
 
-// cria uma pasta para cada grupo de imagens enviadas
-const folder = (req) => {
-
-  let temp = `public/img/paintings/temp`;
-
-  return temp;
-}
-
-// const folder = (req) => {
-
-//   let caminho = `public/img/paintings/${req.body.name}`;
-//   let temp = `public/img/paintings/temp`;
-
-//   if(!fs.existsSync(caminho)) {
-//     fs.mkdirSync(caminho);
-//   } else {
-//     return temp;
-//   }
-  
-//   return caminho;
-// }
-
-
-
-
+// Diretório provisorio para o armazenamento das imagens
+const temp = `public/img/paintings/temp`;
 
 // Multer Configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, folder(req)); // Folder where images will be stored
+    cb(null, temp); // Folder where images will be stored
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
