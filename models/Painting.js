@@ -28,10 +28,6 @@ const Painting = db.define('Painting', {
     price: {
         type: DataTypes.STRING,
         require: true
-    },
-    image: {
-        type: DataTypes.STRING,
-        require: true
     }
 });
 

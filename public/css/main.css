@@ -212,7 +212,7 @@ footer a {
         top: 10px;
         background-color: var(--open-close-btn-bg-color);
         color: var(--open-close-btn-color);
-        font-size: 50px;
+        font-size: 40px;
         z-index: 99999;
     }
 

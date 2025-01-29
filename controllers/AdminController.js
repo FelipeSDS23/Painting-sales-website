@@ -1,9 +1,13 @@
-const sendAdminVerificationCode = require('../helpers/send-admin-verification-code');
-const Admin = require('../models/Admin');
-const Painting = require('../models/Painting');
 const bcrypt = require('bcryptjs');
 
-let appVerificationCode = undefined; // current new user verification code
+// Models
+const Admin = require('../models/Admin');
+const Painting = require('../models/Painting');
+
+// Helpers
+const sendAdminVerificationCode = require('../helpers/send-admin-verification-code');
+
+let appVerificationCode = undefined; // Código de verificação do novo usuário atual
 
 module.exports = class AdminController {
 
@@ -11,23 +15,13 @@ module.exports = class AdminController {
 
         const paintingsData = await Painting.findAll({
             order: [['createdAt', 'ASC']]
-        })
+        });
 
         const paintings = paintingsData.map((paint) => {
             return paint.get({ plain: true })
-        })
-
-        let paintingsQty = paintings.length
-
-        if (paintingsQty === 0) {
-            paintingsQty = false
-        }
-
-
-        // console.log(paintings)
-
-        const session = req.session;
-        res.render('admin/management', {session, paintings});
+        });
+        
+        res.render('admin/management', {paintings});
 
     }
 
@@ -41,7 +35,7 @@ module.exports = class AdminController {
 
         const {email, password} = req.body;
  
-        const admin = await Admin.findOne({where: {email: email}}); // find user
+        const admin = await Admin.findOne({where: {email: email}}); // Encontra usuário
 
         if(!admin) {
             req.flash('message', 'Usuário não encontrado!');
@@ -49,7 +43,7 @@ module.exports = class AdminController {
             return;
         }
         
-        const passwordMatch = bcrypt.compareSync(password, admin.password); // check if password match
+        const passwordMatch = bcrypt.compareSync(password, admin.password); // Verifica se a senha confere
 
         if(!passwordMatch) {
             req.flash('message', 'Senha inválida!');
@@ -57,7 +51,7 @@ module.exports = class AdminController {
             return;
         }
 
-        req.session.adminid = admin.id; // initialize session
+        req.session.adminid = admin.id; // Inicia a sessão
 
         req.flash('message', 'Autenticação realizada com sucesso!');
 
@@ -70,30 +64,32 @@ module.exports = class AdminController {
     static async register(req, res) {
 
         appVerificationCode = await sendAdminVerificationCode(req);
+        req.flash('message', 'O código de verificação foi enviado para o e-mail do administrador');
         res.render('admin/register');
 
     }
 
     static async registerPost(req, res) {
 
-        const email = req.body.email;
-        const password = req.body.password;
+        const {email, password} = req.body;
         const userVerificationCode = Number(req.body.userVerificationCode);
 
+        // Verifica se o usuário digitou o código de verificação correto
         if (userVerificationCode === appVerificationCode) {
 
-            const salt = bcrypt.genSaltSync(10); // create a password
-            const hashedPassword = bcrypt.hashSync(password, salt); // create a password
+            // Criptografa a senha
+            const salt = bcrypt.genSaltSync(10); 
+            const hashedPassword = bcrypt.hashSync(password, salt);
 
             const admin = {
                 email,
                 password: hashedPassword
-            }
+            };
 
             try {
 
                 const createdAdmin = await Admin.create(admin);
-                req.session.adminid = createdAdmin.id; // initialize session
+                req.session.adminid = createdAdmin.id; // Inicia a sessão
                 req.flash('message', 'Novo administrador cadastrado com sucesso!');
 
                 req.session.save(( ) => {
@@ -102,13 +98,14 @@ module.exports = class AdminController {
 
             } catch (error) {
 
-                console.log(error);
+                req.flash('message', 'O código de verificação foi enviado para o e-mail do administrador');
+                res.render('admin/register');
 
             }
 
         } else {
 
-            req.flash('message', 'Código de verificação inválido!');
+            req.flash('message', 'Erro ao criar novo administrador, tente mais tarde!');
             res.render('admin/register');
             return;
 
