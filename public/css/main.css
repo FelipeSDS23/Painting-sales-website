@@ -248,6 +248,7 @@ footer a {
     /* Início contato */
     .contato {
         text-align: center;
+        margin-top: 25px;
     }
 
     .contato h2 {

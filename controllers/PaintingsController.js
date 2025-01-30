@@ -168,6 +168,11 @@ module.exports = class PaintingsController {
             raw: true
         });
 
+        if(!painting) {
+            res.redirect('/');
+            return;
+        }
+
         // Adiciona ao objeto painting um uma chave "imgArray", seu valor é um array com o caminho de cada imagem referente a pintura 
         function listarArquivos(pasta) {
             try {
@@ -184,6 +189,7 @@ module.exports = class PaintingsController {
         let imgArray = listarArquivos(`public/img/paintings/${painting.id}`);
         let imgArrayPaths = imgArray.map(item => `/img/paintings/${painting.id}/${item}`);
         painting.imgArray = imgArrayPaths;
+        painting.cover = imgArrayPaths[0];
 
         res.render("paintings/details", { painting });
     }

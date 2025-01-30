@@ -1,99 +1,165 @@
 .details {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 70px 0px;
-    background-color: #f8f9fa;
 }
 
-.details .container {
-    max-width: 70%;
-    margin: 20px auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.details .details-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
 }
 
-.details .product-image img{
-    /* width: 100%; */
-    height: 450px;
-    background-color: #e9ecef;
+/*container verde*/
+.img-container {
+    width: 50%;
+}
+
+.img-destaque-container {
+    
+}
+
+.img-destaque {
+    width: 40vw;
+    max-width: 90%;
+    /* height: 500px; */
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.img-cards-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #6c757d;
-    font-size: 18px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
 }
 
-.details .product-details {
-    margin-bottom: 20px;
+.img-card {
+    width: 16%;
+    margin: 0 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .1s;
 }
 
-.details .product-details h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+.img-card:hover {
+    border: 2px solid black;
 }
 
-.details .product-details p {
-    margin: 15px 0;
-    color: #495057;
-}
-
-.details .product-details span {
-    font-weight: bold;
-}
-
-.details .add-to-cart {
-    display: inline-block;
-    background-color: #28a745;
-    color: #ffffff;
+/*container azul*/
+.detalhes-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
     text-align: center;
-    padding: 10px 20px;
-    font-size: 16px;
+
+    /* background-color: blue; */
+}
+
+.detalhes-container h1 {
+    margin: 50px 0px;
+}
+
+.detalhes-container p {
+    margin: 20px 0px;
+}
+
+.detalhes-container .valor {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.detalhes-container .add-to-cart {
+    display: inline-block;
+    background: linear-gradient(to bottom, #28a745, #1e7e34);
+    color: white;
+    text-align: center;
+    padding: 15px 30px;
+    font-size: 1.3em;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background 0.3s ease;
     margin-top: 30px;
     cursor: pointer;
+    border: none;
 }
 
 .details .add-to-cart:hover {
-    background-color: #218838;
+    background: linear-gradient(to bottom, #1e7e34, #155724);
 }
 
-/* INICIO ZOOM DA IMAGEM */
-.img-zoom-lens {
-    position: absolute;
-    border: 1px solid #d4d4d4;
-    /*set the size of the lens:*/
-    width: 150px;
-    height: 150px;
-    cursor: zoom-in;
-}
 
-.img-zoom-result {
-    border: 1px solid #d4d4d4;
-    /*set the size of the result div:*/
-    width: 350px;
-    height: 350px;
-    margin: 10px auto;
-}
-/* FIM ZOOM DA IMAGEM */
 
 
 @media screen and (max-width: 800px) {
-    .details .container {
+    .details .details-container {
         flex-direction: column;
-        max-width: 100%;
-        padding: 0px;
+        margin-top: 8vh;
     }
 
-    .details .product-image img{
-        height: 80%;
+    .img-container {
+        width: 100%;
+    }
+
+    .img-destaque {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .img-cards-container {
+        /* padding-bottom: 10px; */
+        overflow-x: scroll;
+        padding: 0px 30px;
+    }
+    
+    .img-card {
+        width: 26%;
+        margin: 0 5px;
+    }
+
+
+
+
+    /*container azul*/
+    .detalhes-container {
+        width: 100%;
+        padding: 0px 5%;
+    }
+
+    .detalhes-container h1 {
+        margin: 25px 0px;
+    }
+
+    .detalhes-container p {
+        margin: 10px 0px;
+    }
+
+    .detalhes-container .valor {
+        font-size: 2em;
+    }
+
+    .detalhes-container .add-to-cart {
+        display: inline-block;
+        background: linear-gradient(to bottom, #28a745, #1e7e34);
+        color: white;
+        text-align: center;
+        
+        font-size: 1.3em;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+        
+        cursor: pointer;
+        border: none;
+
+        padding: 15px 30px;
+        margin: 20px 0px 30px 0px;
+    }
+
+    .details .add-to-cart:hover {
+        background: linear-gradient(to bottom, #1e7e34, #155724);
     }
 }

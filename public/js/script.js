@@ -23,6 +23,20 @@ function resize() { // Mostra/esconde o menu ao redimencionar a janela
         header.style.display = "none";
     }
 }
+
+// Início esconde menu mobile ao clicar nos links
+let menuNavigation = document.querySelector("#menuNavigation");
+const menuNavigationLinks = Array.from(menuNavigation.children); // Converte para array
+
+menuNavigationLinks.forEach(function(navLink) {
+    navLink.addEventListener('click', () => {
+        if (window.innerWidth < 800) {
+            showHideMobileMenu();
+        }
+    })
+});
+// Fim esconde menu mobile ao clicar nos links
+
 // Fim controle do menu (mobile / desktop)
 
 // Início controle de exibição das flash messages

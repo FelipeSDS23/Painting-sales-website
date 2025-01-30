@@ -1,118 +1,47 @@
 <section class="details">
-    <div class="container">
-        
-        <div class="product-image" style="position: relative;">
-            {{#each painting.imgArray}}
-                <img id="myimage" src="{{this}}">
-            {{/each}}
+    <div class="details-container">
+        <div class="img-container">
+            <div class="img-destaque-container">
+                <img src="{{ painting.cover }}" alt="" class="img-destaque" id="imgDestaque">
+            </div>
+            <div id="imgCardsContainer" class="img-cards-container">
+                {{!-- cards --}}
+                {{#each painting.imgArray}}
+                    <img id="myimage" src="{{this}}" class="img-card">
+                {{/each}}
+            </div>
         </div>
-
-        <div class="product-details">
+        <div class="detalhes-container">
+            {{!-- details --}}
             <h1>{{painting.name}}</h1>
-            <p><span>Descrição:</span> {{painting.description}}</p>
-            <p><span>Altura:</span> {{painting.height}}cm</p>
-            <p><span>Largura:</span> {{painting.width}}cm</p>
+            <p>{{painting.description}}</p>
+            <p><span>Dimensões:</span> {{painting.height}}x{{painting.width}}cm</p>
             <p><span>Tipo de Moldura:</span> {{painting.frameType}}</p>
-            <p><span>Valor:</span> R$ {{painting.price}},00</p>
+            <p class="valor"><span>R$</span> {{painting.price}},00</p>
             {{#if session.userid}}
             <span data="{{painting.id}},{{painting.image}},{{painting.name}},{{painting.price}}" class="add-to-cart"
                 id="addToCart">Adicionar ao Carrinho</span>
             {{else}}
             <a href="/user/login"><span class="add-to-cart">Faça login para adicionar ao carrinho</span></a>
             {{/if}}
-
-            {{!-- Div com o resultado do zoom --}}
-            <div id="myresult" class="img-zoom-result"></div>
         </div>
     </div>
 </section>
 
 
-{{!-- Início carrinho --}}
-<script> //adiciona itens ao localstorage
-    const addToCartBtn = document.querySelector("#addToCart");
+<script src="/js/details.js" defer></script>
 
-    addToCartBtn.addEventListener("click", () => {
-        const paintingDetails = addToCart.getAttribute("data");
-
-        if (!localStorage.getItem("cart")) {
-            localStorage.setItem("cart", JSON.stringify({ details: [paintingDetails] }));
-            return;
-        }
-
-        const cart = JSON.parse(localStorage.getItem("cart"));
-
-        cart.details.push(paintingDetails);
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        alert("Movido para o carrinho!")
-    })
-</script>
-{{!-- Fim carrinho --}}
-
-
-{{!-- Zoom da imagem --}}
 <script>
-    function imageZoom(imgID, resultID) {
-        var img, lens, result, cx, cy;
-        img = document.getElementById(imgID);
-        result = document.getElementById(resultID);
-        /*create lens:*/
-        lens = document.createElement("DIV");
-        lens.setAttribute("class", "img-zoom-lens");
-        /*insert lens:*/
-        img.parentElement.insertBefore(lens, img);
-        /*calculate the ratio between result DIV and lens:*/
-        cx = result.offsetWidth / lens.offsetWidth;
-        cy = result.offsetHeight / lens.offsetHeight;
-        /*set background properties for the result DIV:*/
-        result.style.backgroundImage = "url('" + img.src + "')";
-        result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
-        /*execute a function when someone moves the cursor over the image, or the lens:*/
-        lens.addEventListener("mousemove", moveLens);
-        img.addEventListener("mousemove", moveLens);
-        /*and also for touch screens:*/
-        lens.addEventListener("touchmove", moveLens);
-        img.addEventListener("touchmove", moveLens);
-        function moveLens(e) {
-            var pos, x, y;
-            /*prevent any other actions that may occur when moving over the image:*/
-            e.preventDefault();
-            /*get the cursor's x and y positions:*/
-            pos = getCursorPos(e);
-            /*calculate the position of the lens:*/
-            x = pos.x - (lens.offsetWidth / 2);
-            y = pos.y - (lens.offsetHeight / 2);
-            /*prevent the lens from being positioned outside the image:*/
-            if (x > img.width - lens.offsetWidth) { x = img.width - lens.offsetWidth; }
-            if (x < 0) { x = 0; }
-            if (y > img.height - lens.offsetHeight) { y = img.height - lens.offsetHeight; }
-            if (y < 0) { y = 0; }
-            /*set the position of the lens:*/
-            lens.style.left = x + "px";
-            lens.style.top = y + "px";
-            /*display what the lens "sees":*/
-            result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-        }
-        function getCursorPos(e) {
-            var a, x = 0, y = 0;
-            e = e || window.event;
-            /*get the x and y positions of the image:*/
-            a = img.getBoundingClientRect();
-            /*calculate the cursor's x and y coordinates, relative to the image:*/
-            x = e.pageX - a.left;
-            y = e.pageY - a.top;
-            /*consider any page scrolling:*/
-            x = x - window.pageXOffset;
-            y = y - window.pageYOffset;
-            return { x: x, y: y };
-        }
-    }
+    // Início muda imagem destaque
+    let imgCardsContainer = document.querySelector("#imgCardsContainer");
+    let imgDestaque = document.querySelector("#imgDestaque");
 
-    setTimeout(function() {
-        imageZoom("myimage", "myresult");
-    }, 100);
-    
+    const imgCardsArray = Array.from(imgCardsContainer.children); // Converte para array
+
+    imgCardsArray.forEach(function(imgCard) {
+        imgCard.addEventListener('click', (e) => {
+            imgDestaque.setAttribute("src", e.target.getAttribute("src"));
+        })
+    });
+    // Fim muda imagem destaque
 </script>
-{{!-- Fim zoom da imagem --}}
